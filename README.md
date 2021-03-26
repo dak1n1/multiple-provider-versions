@@ -4,7 +4,7 @@
 
 This repo reproduces a bug in Terraform 0.15-beta2 where it is no longer possible to specify multiple versions of a provider in the same config.
 
-To use this, you'll need a copy of a provider stored locally. The provider will be fetched from the local filesystem cache using the config file, `.terraformrc`, contained in this repo. This simulates an in-house provider, but it also would be just as valid using multiple versions of a provider stored in the Terraform Registry, as users sometimes do this to test compatibility between major provider upgrades (for example, Helm 2 -> Helm 3 was a major upgrade where this method proved (https://stackoverflow.com/a/66430076/2825151)[useful]). Using a local provider will demonstrate that the wrong provider config is used when applying this with Terraform 0.15-beta2.
+It uses both an "in-house" provider, which is stored in the local filesystem cache, and an official released version of the provider.
 
 ## Running the reproducer
 
