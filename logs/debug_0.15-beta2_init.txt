@@ -1,0 +1,62 @@
+$ TF_LOG=trace TF_CLI_CONFIG_FILE="$PWD/.terraformrc" terraform0.15.0-beta2 init 2>&1 | tee debug_0.15-beta2_init.txt
+
+2021-03-26T15:04:22.827-0700 [DEBUG] Adding temp file log sink: /tmp/terraform-log265697303
+2021-03-26T15:04:22.827-0700 [INFO]  Terraform version: 0.15.0 beta2
+2021-03-26T15:04:22.827-0700 [INFO]  Go runtime version: go1.16.2
+2021-03-26T15:04:22.827-0700 [INFO]  CLI args: []string{"/home/dakini/usr/bin/terraform0.15.0-beta2", "init"}
+2021-03-26T15:04:22.827-0700 [TRACE] Stdout is not a terminal
+2021-03-26T15:04:22.827-0700 [TRACE] Stderr is not a terminal
+2021-03-26T15:04:22.827-0700 [TRACE] Stdin is a terminal
+2021-03-26T15:04:22.827-0700 [DEBUG] Attempting to open CLI config file: /home/dakini/work/20210324/multiple-provider-versions/.terraformrc
+2021-03-26T15:04:22.827-0700 [INFO]  Loading CLI configuration from /home/dakini/work/20210324/multiple-provider-versions/.terraformrc
+2021-03-26T15:04:22.827-0700 [DEBUG] Not reading CLI config directory because config location is overridden by environment variable
+2021-03-26T15:04:22.827-0700 [DEBUG] Explicit provider installation configuration is set
+2021-03-26T15:04:22.827-0700 [TRACE] Selected provider installation method cliconfig.ProviderInstallationFilesystemMirror("/tmp/.terraform.d") with includes [localhost/test/kubernetes] and excludes []
+2021-03-26T15:04:22.827-0700 [TRACE] Selected provider installation method cliconfig.ProviderInstallationDirect with includes [registry.terraform.io/*/*] and excludes []
+2021-03-26T15:04:22.828-0700 [INFO]  Checkpoint disabled. Not running.
+2021-03-26T15:04:22.828-0700 [INFO]  CLI command args: []string{"init"}
+[0m[1mInitializing modules...[0m
+2021-03-26T15:04:22.836-0700 [TRACE] ModuleInstaller: installing child modules for . into .terraform/modules
+2021-03-26T15:04:22.836-0700 [DEBUG] Module installer: begin community-module
+2021-03-26T15:04:22.836-0700 [TRACE] ModuleInstaller: community-module is not yet installed
+2021-03-26T15:04:22.836-0700 [TRACE] ModuleInstaller: cleaning directory .terraform/modules/community-module prior to install of community-module
+2021-03-26T15:04:22.836-0700 [TRACE] ModuleInstaller: community-module has local path "./community-module"
+2021-03-26T15:04:22.836-0700 [TRACE] ModuleInstaller: community-module uses directory from parent: community-module
+- community-module in community-module
+2021-03-26T15:04:22.837-0700 [DEBUG] Module installer: community-module installed at community-module
+2021-03-26T15:04:22.837-0700 [DEBUG] Module installer: begin kubernetes-test
+2021-03-26T15:04:22.837-0700 [TRACE] ModuleInstaller: kubernetes-test is not yet installed
+2021-03-26T15:04:22.837-0700 [TRACE] ModuleInstaller: cleaning directory .terraform/modules/kubernetes-test prior to install of kubernetes-test
+2021-03-26T15:04:22.837-0700 [TRACE] ModuleInstaller: kubernetes-test has local path "./kubernetes-test"
+2021-03-26T15:04:22.837-0700 [TRACE] ModuleInstaller: kubernetes-test uses directory from parent: kubernetes-test
+- kubernetes-test in kubernetes-test
+2021-03-26T15:04:22.837-0700 [DEBUG] Module installer: kubernetes-test installed at kubernetes-test
+2021-03-26T15:04:22.837-0700 [TRACE] modsdir: writing modules manifest to .terraform/modules/modules.json
+[31m[0mThere are some problems with the configuration, described below.
+
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.[0m[0m
+[31m[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mInvalid type for provider module.community-module.provider["registry.terraform.io/hashicorp/kubernetes"][0m
+[31m│[0m [0m
+[31m│[0m [0m[0m  on main.tf line 31, in module "community-module":
+[31m│[0m [0m  31:   providers =  {[4mkubernetes[0m = kubernetes-released}[0m
+[31m│[0m [0m
+[31m│[0m [0mCannot use configuration from
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/kubernetes-released"] for
+[31m│[0m [0mmodule.community-module.provider["registry.terraform.io/hashicorp/kubernetes"].
+[31m│[0m [0mThe given provider configuration is for a different provider type.
+[31m╵[0m[0m
+[0m[0m
+[31m[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mInvalid type for provider module.kubernetes-test.provider["localhost/test/kubernetes"][0m
+[31m│[0m [0m
+[31m│[0m [0m[0m  on main.tf line 37, in module "kubernetes-test":
+[31m│[0m [0m  37:   providers =  {[4mkubernetes[0m = kubernetes-local}[0m
+[31m│[0m [0m
+[31m│[0m [0mCannot use configuration from
+[31m│[0m [0mprovider["registry.terraform.io/hashicorp/kubernetes-local"] for
+[31m│[0m [0mmodule.kubernetes-test.provider["localhost/test/kubernetes"]. The given
+[31m│[0m [0mprovider configuration is for a different provider type.
+[31m╵[0m[0m
+[0m[0m

@@ -1,0 +1,93 @@
+$ TF_LOG=trace TF_CLI_CONFIG_FILE="$PWD/.terraformrc" terraform0.14.7 init 2>&1 | tee debug_0.14.7_init.txt
+
+
+2021/03/26 15:06:13 [INFO] Terraform version: 0.14.7  
+2021/03/26 15:06:13 [INFO] Go runtime version: go1.15.6
+2021/03/26 15:06:13 [INFO] CLI args: []string{"/home/dakini/usr/bin/terraform0.14.7", "init"}
+2021/03/26 15:06:13 [DEBUG] Attempting to open CLI config file: /home/dakini/work/20210324/multiple-provider-versions/.terraformrc
+2021/03/26 15:06:13 Loading CLI configuration from /home/dakini/work/20210324/multiple-provider-versions/.terraformrc
+2021/03/26 15:06:13 [DEBUG] Not reading CLI config directory because config location is overridden by environment variable
+2021/03/26 15:06:13 [DEBUG] Explicit provider installation configuration is set
+2021/03/26 15:06:13 [TRACE] Selected provider installation method cliconfig.ProviderInstallationFilesystemMirror("/tmp/.terraform.d") with includes [localhost/test/kubernetes] and excludes []
+2021/03/26 15:06:13 [TRACE] Selected provider installation method cliconfig.ProviderInstallationDirect with includes [registry.terraform.io/*/*] and excludes []
+2021/03/26 15:06:13 [INFO] CLI command args: []string{"init"}
+2021/03/26 15:06:13 [INFO] Checkpoint disabled. Not running.
+2021/03/26 15:06:13 [TRACE] ModuleInstaller: installing child modules for . into .terraform/modules
+[0m[1mInitializing modules...[0m
+2021/03/26 15:06:13 [DEBUG] Module installer: begin community-module
+2021/03/26 15:06:13 [TRACE] ModuleInstaller: Module installer: community-module <nil> already installed in community-module
+2021/03/26 15:06:13 [DEBUG] Module installer: begin kubernetes-test
+2021/03/26 15:06:13 [TRACE] ModuleInstaller: Module installer: kubernetes-test <nil> already installed in kubernetes-test
+2021/03/26 15:06:13 [TRACE] modsdir: writing modules manifest to .terraform/modules/modules.json
+
+[0m[1mInitializing the backend...[0m
+2021/03/26 15:06:13 [TRACE] Meta.Backend: no config given or present on disk, so returning nil config
+2021/03/26 15:06:13 [TRACE] Meta.Backend: backend has not previously been initialized in this working directory
+2021/03/26 15:06:13 [DEBUG] New state was assigned lineage "4bec00d8-b13d-1027-1387-01ff84cd2544"
+2021/03/26 15:06:13 [TRACE] Meta.Backend: using default local state only (no backend configuration, and no existing initialized backend)
+2021/03/26 15:06:13 [TRACE] Meta.Backend: instantiated backend of type <nil>
+2021/03/26 15:06:13 [DEBUG] checking for provisioner in "."
+2021/03/26 15:06:13 [DEBUG] checking for provisioner in "/home/dakini/usr/bin"
+2021/03/26 15:06:13 [INFO] Failed to read plugin lock file .terraform/plugins/linux_amd64/lock.json: open .terraform/plugins/linux_amd64/lock.json: no such file or directory
+2021/03/26 15:06:13 [TRACE] Meta.Backend: backend <nil> does not support operations, so wrapping it in a local backend
+2021/03/26 15:06:13 [TRACE] backend/local: state manager for workspace "default" will:
+ - read initial snapshot from terraform.tfstate
+ - write new snapshots to terraform.tfstate
+ - create any backup at terraform.tfstate.backup
+2021/03/26 15:06:13 [TRACE] statemgr.Filesystem: reading initial snapshot from terraform.tfstate
+2021/03/26 15:06:13 [TRACE] statemgr.Filesystem: snapshot file has nil snapshot, but that's okay
+2021/03/26 15:06:13 [TRACE] statemgr.Filesystem: read nil snapshot
+
+[0m[1mInitializing provider plugins...[0m
+- Finding localhost/test/kubernetes versions matching "9.9.9"...
+2021/03/26 15:06:13 [TRACE] getproviders.SearchLocalDirectory: /tmp/.terraform.d is a symlink to /tmp/.terraform.d
+2021/03/26 15:06:13 [TRACE] getproviders.SearchLocalDirectory: found localhost/test/kubernetes v9.9.9 for linux_amd64 at /tmp/.terraform.d/localhost/test/kubernetes/9.9.9/linux_amd64
+2021/03/26 15:06:13 [TRACE] getproviders.SearchLocalDirectory: found localhost/test/kubernetes-alpha v9.9.9 for linux_amd64 at /tmp/.terraform.d/localhost/test/kubernetes-alpha/9.9.9/linux_amd64
+2021/03/26 15:06:13 [DEBUG] Service discovery for registry.terraform.io at https://registry.terraform.io/.well-known/terraform.json
+2021/03/26 15:06:13 [TRACE] HTTP client GET request to https://registry.terraform.io/.well-known/terraform.json
+- Finding hashicorp/kubernetes versions matching ">= 1.11.1, >= 2.0.2"...
+2021/03/26 15:06:14 [DEBUG] GET https://registry.terraform.io/v1/providers/hashicorp/kubernetes/versions
+2021/03/26 15:06:14 [TRACE] HTTP client GET request to https://registry.terraform.io/v1/providers/hashicorp/kubernetes/versions
+2021/03/26 15:06:14 [TRACE] providercache.fillMetaCache: scanning directory .terraform/providers
+2021/03/26 15:06:14 [TRACE] getproviders.SearchLocalDirectory: failed to resolve symlinks for .terraform/providers: lstat .terraform/providers: no such file or directory
+2021/03/26 15:06:14 [TRACE] providercache.fillMetaCache: error while scanning directory .terraform/providers: cannot search .terraform/providers: lstat .terraform/providers: no such file or directory
+2021/03/26 15:06:14 [TRACE] providercache.Dir.InstallPackage: installing localhost/test/kubernetes v9.9.9 from /tmp/.terraform.d/localhost/test/kubernetes/9.9.9/linux_amd64
+- Installing localhost/test/kubernetes v9.9.9...
+2021/03/26 15:06:14 [TRACE] providercache.fillMetaCache: scanning directory .terraform/providers
+2021/03/26 15:06:14 [TRACE] getproviders.SearchLocalDirectory: .terraform/providers is a symlink to .terraform/providers
+2021/03/26 15:06:14 [TRACE] getproviders.SearchLocalDirectory: found localhost/test/kubernetes v9.9.9 for linux_amd64 at .terraform/providers/localhost/test/kubernetes/9.9.9/linux_amd64
+2021/03/26 15:06:14 [TRACE] providercache.fillMetaCache: including .terraform/providers/localhost/test/kubernetes/9.9.9/linux_amd64 as a candidate package for localhost/test/kubernetes 9.9.9
+2021/03/26 15:06:14 [TRACE] providercache.fillMetaCache: using cached result from previous scan of .terraform/providers
+2021/03/26 15:06:14 [DEBUG] GET https://registry.terraform.io/v1/providers/hashicorp/kubernetes/2.0.3/download/linux/amd64
+2021/03/26 15:06:14 [TRACE] HTTP client GET request to https://registry.terraform.io/v1/providers/hashicorp/kubernetes/2.0.3/download/linux/amd64
+- Installed localhost/test/kubernetes v9.9.9 (unauthenticated)
+2021/03/26 15:06:14 [DEBUG] GET https://releases.hashicorp.com/terraform-provider-kubernetes/2.0.3/terraform-provider-kubernetes_2.0.3_SHA256SUMS
+2021/03/26 15:06:14 [TRACE] HTTP client GET request to https://releases.hashicorp.com/terraform-provider-kubernetes/2.0.3/terraform-provider-kubernetes_2.0.3_SHA256SUMS
+2021/03/26 15:06:14 [DEBUG] GET https://releases.hashicorp.com/terraform-provider-kubernetes/2.0.3/terraform-provider-kubernetes_2.0.3_SHA256SUMS.sig
+2021/03/26 15:06:14 [TRACE] HTTP client GET request to https://releases.hashicorp.com/terraform-provider-kubernetes/2.0.3/terraform-provider-kubernetes_2.0.3_SHA256SUMS.sig
+2021/03/26 15:06:14 [TRACE] providercache.Dir.InstallPackage: installing registry.terraform.io/hashicorp/kubernetes v2.0.3 from https://releases.hashicorp.com/terraform-provider-kubernetes/2.0.3/terraform-provider-kubernetes_2.0.3_linux_amd64.zip
+2021/03/26 15:06:14 [TRACE] HTTP client GET request to https://releases.hashicorp.com/terraform-provider-kubernetes/2.0.3/terraform-provider-kubernetes_2.0.3_linux_amd64.zip
+- Installing hashicorp/kubernetes v2.0.3...
+2021/03/26 15:06:14 [DEBUG] Provider signed by 51852D87348FFC4C HashiCorp Security <security@hashicorp.com>
+2021/03/26 15:06:15 [TRACE] providercache.fillMetaCache: scanning directory .terraform/providers
+2021/03/26 15:06:15 [TRACE] getproviders.SearchLocalDirectory: .terraform/providers is a symlink to .terraform/providers
+2021/03/26 15:06:15 [TRACE] getproviders.SearchLocalDirectory: found localhost/test/kubernetes v9.9.9 for linux_amd64 at .terraform/providers/localhost/test/kubernetes/9.9.9/linux_amd64
+2021/03/26 15:06:15 [TRACE] getproviders.SearchLocalDirectory: found registry.terraform.io/hashicorp/kubernetes v2.0.3 for linux_amd64 at .terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.0.3/linux_amd64
+2021/03/26 15:06:15 [TRACE] providercache.fillMetaCache: including .terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.0.3/linux_amd64 as a candidate package for registry.terraform.io/hashicorp/kubernetes 2.0.3
+2021/03/26 15:06:15 [TRACE] providercache.fillMetaCache: including .terraform/providers/localhost/test/kubernetes/9.9.9/linux_amd64 as a candidate package for localhost/test/kubernetes 9.9.9
+- Installed hashicorp/kubernetes v2.0.3 (signed by HashiCorp)
+
+Terraform has created a lock file [1m.terraform.lock.hcl[0m to record the provider
+selections it made above. Include this file in your version control repository
+so that Terraform can guarantee to make the same selections by default when
+you run "terraform init" in the future.[0m
+
+[0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+[0m[32m
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.[0m

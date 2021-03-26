@@ -1,0 +1,1905 @@
+$ TF_LOG=trace TF_CLI_CONFIG_FILE="$PWD/.terraformrc" terraform0.14.7 apply --auto-approve 2>&1 | tee debug_0.14.7_apply.txt
+
+2021/03/26 15:06:30 [INFO] Terraform version: 0.14.7  
+2021/03/26 15:06:30 [INFO] Go runtime version: go1.15.6
+2021/03/26 15:06:30 [INFO] CLI args: []string{"/home/dakini/usr/bin/terraform0.14.7", "apply", "--auto-approve"}
+2021/03/26 15:06:30 [DEBUG] Attempting to open CLI config file: /home/dakini/work/20210324/multiple-provider-versions/.terraformrc
+2021/03/26 15:06:30 Loading CLI configuration from /home/dakini/work/20210324/multiple-provider-versions/.terraformrc
+2021/03/26 15:06:30 [DEBUG] Not reading CLI config directory because config location is overridden by environment variable
+2021/03/26 15:06:30 [DEBUG] Explicit provider installation configuration is set
+2021/03/26 15:06:30 [TRACE] Selected provider installation method cliconfig.ProviderInstallationFilesystemMirror("/tmp/.terraform.d") with includes [localhost/test/kubernetes] and excludes []
+2021/03/26 15:06:30 [TRACE] Selected provider installation method cliconfig.ProviderInstallationDirect with includes [registry.terraform.io/*/*] and excludes []
+2021/03/26 15:06:30 [INFO] CLI command args: []string{"apply", "--auto-approve"}
+2021/03/26 15:06:30 [INFO] Checkpoint disabled. Not running.
+2021/03/26 15:06:30 [TRACE] Meta.Backend: no config given or present on disk, so returning nil config
+2021/03/26 15:06:30 [TRACE] Meta.Backend: backend has not previously been initialized in this working directory
+2021/03/26 15:06:30 [DEBUG] New state was assigned lineage "7c4c0b94-07f2-3a82-801b-7b3362be159f"
+2021/03/26 15:06:30 [TRACE] Meta.Backend: using default local state only (no backend configuration, and no existing initialized backend)
+2021/03/26 15:06:30 [TRACE] Meta.Backend: instantiated backend of type <nil>
+2021/03/26 15:06:30 [TRACE] providercache.fillMetaCache: scanning directory .terraform/providers
+2021/03/26 15:06:30 [TRACE] getproviders.SearchLocalDirectory: .terraform/providers is a symlink to .terraform/providers
+2021/03/26 15:06:30 [TRACE] getproviders.SearchLocalDirectory: found localhost/test/kubernetes v9.9.9 for linux_amd64 at .terraform/providers/localhost/test/kubernetes/9.9.9/linux_amd64
+2021/03/26 15:06:30 [TRACE] getproviders.SearchLocalDirectory: found registry.terraform.io/hashicorp/kubernetes v2.0.3 for linux_amd64 at .terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.0.3/linux_amd64
+2021/03/26 15:06:30 [TRACE] providercache.fillMetaCache: including .terraform/providers/localhost/test/kubernetes/9.9.9/linux_amd64 as a candidate package for localhost/test/kubernetes 9.9.9
+2021/03/26 15:06:30 [TRACE] providercache.fillMetaCache: including .terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.0.3/linux_amd64 as a candidate package for registry.terraform.io/hashicorp/kubernetes 2.0.3
+2021/03/26 15:06:30 [TRACE] providercache.fillMetaCache: using cached result from previous scan of .terraform/providers
+2021/03/26 15:06:30 [DEBUG] checking for provisioner in "."
+2021/03/26 15:06:30 [DEBUG] checking for provisioner in "/home/dakini/usr/bin"
+2021/03/26 15:06:30 [INFO] Failed to read plugin lock file .terraform/plugins/linux_amd64/lock.json: open .terraform/plugins/linux_amd64/lock.json: no such file or directory
+2021/03/26 15:06:30 [TRACE] Meta.Backend: backend <nil> does not support operations, so wrapping it in a local backend
+2021/03/26 15:06:30 [INFO] backend/local: starting Apply operation
+2021/03/26 15:06:30 [TRACE] backend/local: requesting state manager for workspace "default"
+2021/03/26 15:06:30 [TRACE] backend/local: state manager for workspace "default" will:
+ - read initial snapshot from terraform.tfstate
+ - write new snapshots to terraform.tfstate
+ - create any backup at terraform.tfstate.backup
+2021/03/26 15:06:30 [TRACE] backend/local: requesting state lock for workspace "default"
+2021/03/26 15:06:30 [TRACE] statemgr.Filesystem: preparing to manage state snapshots at terraform.tfstate
+2021/03/26 15:06:30 [TRACE] statemgr.Filesystem: no previously-stored snapshot exists
+2021/03/26 15:06:30 [TRACE] statemgr.Filesystem: locking terraform.tfstate using fcntl flock
+2021/03/26 15:06:30 [TRACE] statemgr.Filesystem: writing lock metadata to .terraform.tfstate.lock.info
+2021/03/26 15:06:30 [TRACE] backend/local: reading remote state for workspace "default"
+2021/03/26 15:06:30 [TRACE] statemgr.Filesystem: reading latest snapshot from terraform.tfstate
+2021/03/26 15:06:30 [TRACE] statemgr.Filesystem: snapshot file has nil snapshot, but that's okay
+2021/03/26 15:06:30 [TRACE] statemgr.Filesystem: read nil snapshot
+2021/03/26 15:06:30 [TRACE] backend/local: retrieving local state snapshot for workspace "default"
+2021/03/26 15:06:30 [TRACE] backend/local: building context for current working directory
+2021/03/26 15:06:30 [TRACE] terraform.NewContext: starting
+2021/03/26 15:06:30 [TRACE] terraform.NewContext: loading provider schemas
+2021/03/26 15:06:30 [TRACE] LoadSchemas: retrieving schema for provider type "localhost/test/kubernetes"
+2021-03-26T15:06:30.288-0700 [INFO]  plugin: configuring client automatic mTLS
+2021-03-26T15:06:30.313-0700 [DEBUG] plugin: starting plugin: path=.terraform/providers/localhost/test/kubernetes/9.9.9/linux_amd64/terraform-provider-kubernetes_9.9.9_linux_amd64 args=[.terraform/providers/localhost/test/kubernetes/9.9.9/linux_amd64/terraform-provider-kubernetes_9.9.9_linux_amd64]
+2021-03-26T15:06:30.313-0700 [DEBUG] plugin: plugin started: path=.terraform/providers/localhost/test/kubernetes/9.9.9/linux_amd64/terraform-provider-kubernetes_9.9.9_linux_amd64 pid=237396
+2021-03-26T15:06:30.313-0700 [DEBUG] plugin: waiting for RPC address: path=.terraform/providers/localhost/test/kubernetes/9.9.9/linux_amd64/terraform-provider-kubernetes_9.9.9_linux_amd64
+2021-03-26T15:06:30.360-0700 [INFO]  plugin.terraform-provider-kubernetes_9.9.9_linux_amd64: configuring server automatic mTLS: timestamp=2021-03-26T15:06:30.360-0700
+2021-03-26T15:06:30.399-0700 [DEBUG] plugin: using plugin: version=5
+2021-03-26T15:06:30.399-0700 [DEBUG] plugin.terraform-provider-kubernetes_9.9.9_linux_amd64: plugin address: address=/tmp/plugin698141507 network=unix timestamp=2021-03-26T15:06:30.398-0700
+2021/03/26 15:06:30 [TRACE] GRPCProvider: GetSchema
+2021-03-26T15:06:30.447-0700 [TRACE] plugin.stdio: waiting for stdio data
+2021/03/26 15:06:30 [TRACE] GRPCProvider: Close
+2021-03-26T15:06:30.478-0700 [WARN]  plugin.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = transport is closing"
+2021-03-26T15:06:30.482-0700 [DEBUG] plugin: plugin process exited: path=.terraform/providers/localhost/test/kubernetes/9.9.9/linux_amd64/terraform-provider-kubernetes_9.9.9_linux_amd64 pid=237396
+2021-03-26T15:06:30.482-0700 [DEBUG] plugin: plugin exited
+2021/03/26 15:06:30 [TRACE] LoadSchemas: retrieving schema for provider type "registry.terraform.io/hashicorp/kubernetes"
+2021-03-26T15:06:30.482-0700 [INFO]  plugin: configuring client automatic mTLS
+2021-03-26T15:06:30.509-0700 [DEBUG] plugin: starting plugin: path=.terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.0.3/linux_amd64/terraform-provider-kubernetes_v2.0.3_x5 args=[.terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.0.3/linux_amd64/terraform-provider-kubernetes_v2.0.3_x5]
+2021-03-26T15:06:30.509-0700 [DEBUG] plugin: plugin started: path=.terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.0.3/linux_amd64/terraform-provider-kubernetes_v2.0.3_x5 pid=237409
+2021-03-26T15:06:30.509-0700 [DEBUG] plugin: waiting for RPC address: path=.terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.0.3/linux_amd64/terraform-provider-kubernetes_v2.0.3_x5
+2021-03-26T15:06:30.549-0700 [INFO]  plugin.terraform-provider-kubernetes_v2.0.3_x5: configuring server automatic mTLS: timestamp=2021-03-26T15:06:30.548-0700
+2021-03-26T15:06:30.587-0700 [DEBUG] plugin.terraform-provider-kubernetes_v2.0.3_x5: plugin address: network=unix address=/tmp/plugin258216191 timestamp=2021-03-26T15:06:30.587-0700
+2021-03-26T15:06:30.587-0700 [DEBUG] plugin: using plugin: version=5
+2021/03/26 15:06:30 [TRACE] GRPCProvider: GetSchema
+2021-03-26T15:06:30.633-0700 [TRACE] plugin.stdio: waiting for stdio data
+2021/03/26 15:06:30 [TRACE] GRPCProvider: Close
+2021-03-26T15:06:30.659-0700 [WARN]  plugin.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = transport is closing"
+2021-03-26T15:06:30.661-0700 [DEBUG] plugin: plugin process exited: path=.terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.0.3/linux_amd64/terraform-provider-kubernetes_v2.0.3_x5 pid=237409
+2021-03-26T15:06:30.661-0700 [DEBUG] plugin: plugin exited
+2021/03/26 15:06:30 [TRACE] terraform.NewContext: complete
+2021/03/26 15:06:30 [TRACE] backend/local: finished building terraform.Context
+2021/03/26 15:06:30 [TRACE] backend/local: requesting interactive input, if necessary
+2021/03/26 15:06:30 [TRACE] Context.Input: Prompting for provider arguments
+2021/03/26 15:06:30 [TRACE] Context.Input: Provider provider.kubernetes-released declared at main.tf:20,1-31
+2021/03/26 15:06:30 [TRACE] Context.Input: Provider provider.kubernetes-local declared at main.tf:25,1-28
+2021/03/26 15:06:30 [TRACE] Context.Input: Input for provider.kubernetes-released: map[string]cty.Value{}
+2021/03/26 15:06:30 [TRACE] Context.Input: Input for provider.kubernetes-local: map[string]cty.Value{}
+2021/03/26 15:06:30 [TRACE] backend/local: running validation operation
+2021/03/26 15:06:30 [INFO] terraform: building graph: GraphTypeValidate
+2021/03/26 15:06:30 [TRACE] Executing graph transform *terraform.ConfigTransformer
+2021/03/26 15:06:30 [TRACE] ConfigTransformer: Starting for path: 
+2021/03/26 15:06:30 [TRACE] ConfigTransformer: Starting for path: module.community-module
+2021/03/26 15:06:30 [TRACE] ConfigTransformer: Starting for path: module.kubernetes-test
+2021/03/26 15:06:30 [TRACE] Completed graph transform *terraform.ConfigTransformer with new graph:
+  module.community-module.kubernetes_namespace.test - *terraform.NodeValidatableResource
+  module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeValidatableResource
+  ------
+2021/03/26 15:06:30 [TRACE] Executing graph transform *terraform.RootVariableTransformer
+2021/03/26 15:06:30 [TRACE] Completed graph transform *terraform.RootVariableTransformer (no changes)
+2021/03/26 15:06:30 [TRACE] Executing graph transform *terraform.ModuleVariableTransformer
+2021/03/26 15:06:30 [TRACE] Completed graph transform *terraform.ModuleVariableTransformer (no changes)
+2021/03/26 15:06:30 [TRACE] Executing graph transform *terraform.LocalTransformer
+2021/03/26 15:06:30 [TRACE] Completed graph transform *terraform.LocalTransformer (no changes)
+2021/03/26 15:06:30 [TRACE] Executing graph transform *terraform.OutputTransformer
+2021/03/26 15:06:30 [TRACE] OutputTransformer: adding filename as *terraform.nodeExpandOutput
+2021/03/26 15:06:30 [TRACE] Completed graph transform *terraform.OutputTransformer with new graph:
+  module.community-module.kubernetes_namespace.test - *terraform.NodeValidatableResource
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeValidatableResource
+  ------
+2021/03/26 15:06:30 [TRACE] Executing graph transform *terraform.OrphanResourceInstanceTransformer
+2021/03/26 15:06:30 [TRACE] Completed graph transform *terraform.OrphanResourceInstanceTransformer (no changes)
+2021/03/26 15:06:30 [TRACE] Executing graph transform *terraform.StateTransformer
+2021/03/26 15:06:30 [TRACE] StateTransformer: state is empty, so nothing to do
+2021/03/26 15:06:30 [TRACE] Completed graph transform *terraform.StateTransformer (no changes)
+2021/03/26 15:06:30 [TRACE] Executing graph transform *terraform.AttachStateTransformer
+2021/03/26 15:06:30 [TRACE] Completed graph transform *terraform.AttachStateTransformer (no changes)
+2021/03/26 15:06:30 [TRACE] Executing graph transform *terraform.OrphanOutputTransformer
+2021/03/26 15:06:30 [TRACE] Completed graph transform *terraform.OrphanOutputTransformer (no changes)
+2021/03/26 15:06:30 [TRACE] Executing graph transform *terraform.AttachResourceConfigTransformer
+2021/03/26 15:06:30 [TRACE] AttachResourceConfigTransformer: attaching to "module.community-module.kubernetes_namespace.test" (*terraform.NodeValidatableResource) config from community-module/main.tf:13,1-37
+2021/03/26 15:06:30 [TRACE] AttachResourceConfigTransformer: attaching provider meta configs to module.community-module.kubernetes_namespace.test
+2021/03/26 15:06:30 [TRACE] AttachResourceConfigTransformer: attaching to "module.kubernetes-test.kubernetes_namespace.test" (*terraform.NodeValidatableResource) config from kubernetes-test/main.tf:13,1-37
+2021/03/26 15:06:30 [TRACE] AttachResourceConfigTransformer: attaching provider meta configs to module.kubernetes-test.kubernetes_namespace.test
+2021/03/26 15:06:30 [TRACE] Completed graph transform *terraform.AttachResourceConfigTransformer (no changes)
+2021/03/26 15:06:30 [TRACE] Executing graph transform *terraform.MissingProvisionerTransformer
+2021/03/26 15:06:30 [TRACE] Completed graph transform *terraform.MissingProvisionerTransformer (no changes)
+2021/03/26 15:06:30 [TRACE] Executing graph transform *terraform.ProvisionerTransformer
+2021/03/26 15:06:30 [TRACE] Completed graph transform *terraform.ProvisionerTransformer (no changes)
+2021/03/26 15:06:30 [TRACE] Executing graph transform *terraform.graphTransformerMulti
+2021/03/26 15:06:30 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ProviderConfigTransformer
+2021/03/26 15:06:30 [TRACE] ProviderConfigTransformer: attaching to "provider[\"localhost/test/kubernetes\"]" provider configuration from main.tf:25,1-28
+2021/03/26 15:06:30 [TRACE] ProviderConfigTransformer: attaching to "provider[\"registry.terraform.io/hashicorp/kubernetes\"]" provider configuration from main.tf:20,1-31
+2021/03/26 15:06:30 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ProviderConfigTransformer with new graph:
+  module.community-module.kubernetes_namespace.test - *terraform.NodeValidatableResource
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.community-module.provider["registry.terraform.io/hashicorp/kubernetes"] (proxy) - *terraform.graphNodeProxyProvider
+  module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeValidatableResource
+  module.kubernetes-test.provider["localhost/test/kubernetes"] (proxy) - *terraform.graphNodeProxyProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  ------
+2021/03/26 15:06:30 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.MissingProviderTransformer
+2021/03/26 15:06:30 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.MissingProviderTransformer (no changes)
+2021/03/26 15:06:30 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ProviderTransformer
+2021/03/26 15:06:30 [TRACE] ProviderTransformer: exact match for module.community-module.provider["registry.terraform.io/hashicorp/kubernetes"] serving module.community-module.kubernetes_namespace.test
+2021/03/26 15:06:30 [DEBUG] ProviderTransformer: "module.community-module.kubernetes_namespace.test" (*terraform.NodeValidatableResource) needs provider["registry.terraform.io/hashicorp/kubernetes"]
+2021/03/26 15:06:30 [TRACE] ProviderTransformer: exact match for module.kubernetes-test.provider["localhost/test/kubernetes"] serving module.kubernetes-test.kubernetes_namespace.test
+2021/03/26 15:06:30 [DEBUG] ProviderTransformer: "module.kubernetes-test.kubernetes_namespace.test" (*terraform.NodeValidatableResource) needs provider["localhost/test/kubernetes"]
+2021/03/26 15:06:30 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ProviderTransformer with new graph:
+  module.community-module.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  ------
+2021/03/26 15:06:30 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.PruneProviderTransformer
+2021/03/26 15:06:30 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.PruneProviderTransformer (no changes)
+2021/03/26 15:06:30 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ParentProviderTransformer
+2021/03/26 15:06:30 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ParentProviderTransformer (no changes)
+2021/03/26 15:06:30 [TRACE] Completed graph transform *terraform.graphTransformerMulti with new graph:
+  module.community-module.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  ------
+2021/03/26 15:06:30 [TRACE] Executing graph transform *terraform.RemovedModuleTransformer
+2021/03/26 15:06:30 [TRACE] Completed graph transform *terraform.RemovedModuleTransformer (no changes)
+2021/03/26 15:06:30 [TRACE] Executing graph transform *terraform.AttachSchemaTransformer
+2021/03/26 15:06:30 [TRACE] AttachSchemaTransformer: attaching resource schema to module.community-module.kubernetes_namespace.test
+2021/03/26 15:06:30 [TRACE] AttachSchemaTransformer: attaching resource schema to module.kubernetes-test.kubernetes_namespace.test
+2021/03/26 15:06:30 [TRACE] AttachSchemaTransformer: attaching provider config schema to provider["localhost/test/kubernetes"]
+2021/03/26 15:06:30 [TRACE] AttachSchemaTransformer: attaching provider config schema to provider["registry.terraform.io/hashicorp/kubernetes"]
+2021/03/26 15:06:30 [TRACE] Completed graph transform *terraform.AttachSchemaTransformer (no changes)
+2021/03/26 15:06:30 [TRACE] Executing graph transform *terraform.ModuleExpansionTransformer
+2021/03/26 15:06:30 [TRACE] ModuleExpansionTransformer: Added module.community-module as *terraform.nodeValidateModule
+2021/03/26 15:06:30 [TRACE] ModuleExpansionTransformer: module.community-module.kubernetes_namespace.test must wait for expansion of module.community-module
+2021/03/26 15:06:30 [TRACE] ModuleExpansionTransformer: module.community-module.output.filename (expand) must wait for expansion of module.community-module
+2021/03/26 15:06:30 [TRACE] ModuleExpansionTransformer: module.community-module (close) must wait for expansion of module.community-module
+2021/03/26 15:06:30 [TRACE] ModuleExpansionTransformer: Added module.kubernetes-test as *terraform.nodeValidateModule
+2021/03/26 15:06:30 [TRACE] ModuleExpansionTransformer: module.kubernetes-test (close) must wait for expansion of module.kubernetes-test
+2021/03/26 15:06:30 [TRACE] ModuleExpansionTransformer: module.kubernetes-test.kubernetes_namespace.test must wait for expansion of module.kubernetes-test
+2021/03/26 15:06:30 [TRACE] Completed graph transform *terraform.ModuleExpansionTransformer with new graph:
+  module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module (expand) - *terraform.nodeValidateModule
+    module.community-module.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.community-module (expand) - *terraform.nodeValidateModule
+  module.community-module.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    module.community-module (expand) - *terraform.nodeValidateModule
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.community-module (expand) - *terraform.nodeValidateModule
+  module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (expand) - *terraform.nodeValidateModule
+    module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeValidatableResource
+  module.kubernetes-test (expand) - *terraform.nodeValidateModule
+  module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    module.kubernetes-test (expand) - *terraform.nodeValidateModule
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  ------
+2021/03/26 15:06:30 [TRACE] Executing graph transform *terraform.ReferenceTransformer
+2021/03/26 15:06:30 [DEBUG] ReferenceTransformer: "module.kubernetes-test.kubernetes_namespace.test" references: []
+2021/03/26 15:06:30 [DEBUG] ReferenceTransformer: "provider[\"localhost/test/kubernetes\"]" references: [module.community-module.output.filename (expand)]
+2021/03/26 15:06:30 [DEBUG] ReferenceTransformer: "module.community-module (close)" references: []
+2021/03/26 15:06:30 [DEBUG] ReferenceTransformer: "module.kubernetes-test (expand)" references: []
+2021/03/26 15:06:30 [DEBUG] ReferenceTransformer: "module.community-module.kubernetes_namespace.test" references: []
+2021/03/26 15:06:30 [DEBUG] ReferenceTransformer: "module.community-module.output.filename (expand)" references: []
+2021/03/26 15:06:30 [DEBUG] ReferenceTransformer: "provider[\"registry.terraform.io/hashicorp/kubernetes\"]" references: []
+2021/03/26 15:06:30 [DEBUG] ReferenceTransformer: "module.community-module (expand)" references: []
+2021/03/26 15:06:30 [DEBUG] ReferenceTransformer: "module.kubernetes-test (close)" references: []
+2021/03/26 15:06:30 [TRACE] Completed graph transform *terraform.ReferenceTransformer with new graph:
+  module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module (expand) - *terraform.nodeValidateModule
+    module.community-module.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.community-module (expand) - *terraform.nodeValidateModule
+  module.community-module.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    module.community-module (expand) - *terraform.nodeValidateModule
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.community-module (expand) - *terraform.nodeValidateModule
+  module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (expand) - *terraform.nodeValidateModule
+    module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeValidatableResource
+  module.kubernetes-test (expand) - *terraform.nodeValidateModule
+  module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    module.kubernetes-test (expand) - *terraform.nodeValidateModule
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  ------
+2021/03/26 15:06:30 [TRACE] Executing graph transform *terraform.AttachDependenciesTransformer
+2021/03/26 15:06:30 [TRACE] Completed graph transform *terraform.AttachDependenciesTransformer (no changes)
+2021/03/26 15:06:30 [TRACE] Executing graph transform *terraform.attachDataResourceDependenciesTransformer
+2021/03/26 15:06:30 [TRACE] Completed graph transform *terraform.attachDataResourceDependenciesTransformer (no changes)
+2021/03/26 15:06:30 [TRACE] Executing graph transform *terraform.TargetsTransformer
+2021/03/26 15:06:30 [TRACE] Completed graph transform *terraform.TargetsTransformer (no changes)
+2021/03/26 15:06:30 [TRACE] Executing graph transform *terraform.ForcedCBDTransformer
+2021/03/26 15:06:30 [TRACE] Completed graph transform *terraform.ForcedCBDTransformer (no changes)
+2021/03/26 15:06:30 [TRACE] Executing graph transform *terraform.CountBoundaryTransformer
+2021/03/26 15:06:30 [TRACE] Completed graph transform *terraform.CountBoundaryTransformer with new graph:
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module (expand) - *terraform.nodeValidateModule
+    module.community-module.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (expand) - *terraform.nodeValidateModule
+    module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module (expand) - *terraform.nodeValidateModule
+    module.community-module.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.community-module (expand) - *terraform.nodeValidateModule
+  module.community-module.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    module.community-module (expand) - *terraform.nodeValidateModule
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.community-module (expand) - *terraform.nodeValidateModule
+  module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (expand) - *terraform.nodeValidateModule
+    module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeValidatableResource
+  module.kubernetes-test (expand) - *terraform.nodeValidateModule
+  module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    module.kubernetes-test (expand) - *terraform.nodeValidateModule
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  ------
+2021/03/26 15:06:30 [TRACE] Executing graph transform *terraform.CloseProviderTransformer
+2021/03/26 15:06:30 [TRACE] Completed graph transform *terraform.CloseProviderTransformer with new graph:
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module (expand) - *terraform.nodeValidateModule
+    module.community-module.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (expand) - *terraform.nodeValidateModule
+    module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module (expand) - *terraform.nodeValidateModule
+    module.community-module.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.community-module (expand) - *terraform.nodeValidateModule
+  module.community-module.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    module.community-module (expand) - *terraform.nodeValidateModule
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.community-module (expand) - *terraform.nodeValidateModule
+  module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (expand) - *terraform.nodeValidateModule
+    module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeValidatableResource
+  module.kubernetes-test (expand) - *terraform.nodeValidateModule
+  module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    module.kubernetes-test (expand) - *terraform.nodeValidateModule
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  provider["localhost/test/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+    module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+    module.community-module.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  ------
+2021/03/26 15:06:30 [TRACE] Executing graph transform *terraform.CloseRootModuleTransformer
+2021/03/26 15:06:30 [TRACE] Completed graph transform *terraform.CloseRootModuleTransformer with new graph:
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module (expand) - *terraform.nodeValidateModule
+    module.community-module.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (expand) - *terraform.nodeValidateModule
+    module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module (expand) - *terraform.nodeValidateModule
+    module.community-module.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.community-module (expand) - *terraform.nodeValidateModule
+  module.community-module.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    module.community-module (expand) - *terraform.nodeValidateModule
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.community-module (expand) - *terraform.nodeValidateModule
+  module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (expand) - *terraform.nodeValidateModule
+    module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeValidatableResource
+  module.kubernetes-test (expand) - *terraform.nodeValidateModule
+  module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    module.kubernetes-test (expand) - *terraform.nodeValidateModule
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  provider["localhost/test/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+    module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+    module.community-module.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  root - *terraform.nodeCloseModule
+    meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    provider["localhost/test/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+    provider["registry.terraform.io/hashicorp/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+  ------
+2021/03/26 15:06:30 [TRACE] Executing graph transform *terraform.TransitiveReductionTransformer
+2021/03/26 15:06:30 [TRACE] Completed graph transform *terraform.TransitiveReductionTransformer with new graph:
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    module.community-module (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (close) - *terraform.nodeCloseModule
+  module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.community-module (expand) - *terraform.nodeValidateModule
+  module.community-module.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    module.community-module (expand) - *terraform.nodeValidateModule
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.community-module (expand) - *terraform.nodeValidateModule
+  module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeValidatableResource
+  module.kubernetes-test (expand) - *terraform.nodeValidateModule
+  module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeValidatableResource
+    module.kubernetes-test (expand) - *terraform.nodeValidateModule
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  provider["localhost/test/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+    module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeValidatableResource
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+    module.community-module.kubernetes_namespace.test - *terraform.NodeValidatableResource
+  root - *terraform.nodeCloseModule
+    meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    provider["localhost/test/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+    provider["registry.terraform.io/hashicorp/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+  ------
+2021/03/26 15:06:30 [DEBUG] Starting graph walk: walkValidate
+2021/03/26 15:06:30 [TRACE] dag/walk: visiting "provider[\"registry.terraform.io/hashicorp/kubernetes\"]"
+2021/03/26 15:06:30 [TRACE] dag/walk: visiting "module.community-module (expand)"
+2021/03/26 15:06:30 [TRACE] dag/walk: visiting "module.kubernetes-test (expand)"
+2021/03/26 15:06:30 [TRACE] vertex "module.community-module (expand)": starting visit (*terraform.nodeValidateModule)
+2021/03/26 15:06:30 [TRACE] vertex "module.kubernetes-test (expand)": starting visit (*terraform.nodeValidateModule)
+2021/03/26 15:06:30 [TRACE] vertex "provider[\"registry.terraform.io/hashicorp/kubernetes\"]": starting visit (*terraform.NodeApplyableProvider)
+2021/03/26 15:06:30 [TRACE] vertex "module.kubernetes-test (expand)": visit complete
+2021/03/26 15:06:30 [TRACE] vertex "module.community-module (expand)": visit complete
+2021/03/26 15:06:30 [TRACE] dag/walk: visiting "module.community-module.output.filename (expand)"
+2021/03/26 15:06:30 [TRACE] vertex "module.community-module.output.filename (expand)": starting visit (*terraform.nodeExpandOutput)
+2021/03/26 15:06:30 [TRACE] vertex "module.community-module.output.filename (expand)": expanding dynamic subgraph
+2021/03/26 15:06:30 [TRACE] Expanding output: adding module.community-module.output.filename as *terraform.NodeApplyableOutput
+2021/03/26 15:06:30 [TRACE] vertex "module.community-module.output.filename (expand)": entering dynamic subgraph
+2021/03/26 15:06:30 [TRACE] dag/walk: visiting "module.community-module.output.filename"
+2021/03/26 15:06:30 [TRACE] vertex "module.community-module.output.filename": starting visit (*terraform.NodeApplyableOutput)
+2021-03-26T15:06:30.665-0700 [INFO]  plugin: configuring client automatic mTLS
+2021/03/26 15:06:30 [TRACE] ExecuteWriteOutput: Saving Create change for module.community-module.output.filename in changeset
+2021/03/26 15:06:30 [TRACE] EvalWriteOutput: Saving value for module.community-module.output.filename in state
+2021/03/26 15:06:30 [TRACE] ExecuteWriteOutput: Saving Create change for module.community-module.output.filename in changeset
+2021/03/26 15:06:30 [TRACE] EvalWriteOutput: Saving value for module.community-module.output.filename in state
+2021/03/26 15:06:30 [TRACE] vertex "module.community-module.output.filename": visit complete
+2021/03/26 15:06:30 [TRACE] vertex "module.community-module.output.filename (expand)": dynamic subgraph completed successfully
+2021/03/26 15:06:30 [TRACE] vertex "module.community-module.output.filename (expand)": visit complete
+2021/03/26 15:06:30 [TRACE] dag/walk: visiting "provider[\"localhost/test/kubernetes\"]"
+2021/03/26 15:06:30 [TRACE] vertex "provider[\"localhost/test/kubernetes\"]": starting visit (*terraform.NodeApplyableProvider)
+2021-03-26T15:06:30.692-0700 [DEBUG] plugin: starting plugin: path=.terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.0.3/linux_amd64/terraform-provider-kubernetes_v2.0.3_x5 args=[.terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.0.3/linux_amd64/terraform-provider-kubernetes_v2.0.3_x5]
+2021-03-26T15:06:30.692-0700 [DEBUG] plugin: plugin started: path=.terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.0.3/linux_amd64/terraform-provider-kubernetes_v2.0.3_x5 pid=237422
+2021-03-26T15:06:30.692-0700 [DEBUG] plugin: waiting for RPC address: path=.terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.0.3/linux_amd64/terraform-provider-kubernetes_v2.0.3_x5
+2021-03-26T15:06:30.730-0700 [INFO]  plugin.terraform-provider-kubernetes_v2.0.3_x5: configuring server automatic mTLS: timestamp=2021-03-26T15:06:30.730-0700
+2021-03-26T15:06:30.765-0700 [DEBUG] plugin: using plugin: version=5
+2021-03-26T15:06:30.765-0700 [DEBUG] plugin.terraform-provider-kubernetes_v2.0.3_x5: plugin address: network=unix address=/tmp/plugin714858999 timestamp=2021-03-26T15:06:30.765-0700
+2021/03/26 15:06:30 [TRACE] BuiltinEvalContext: Initialized "provider[\"registry.terraform.io/hashicorp/kubernetes\"]" provider for provider["registry.terraform.io/hashicorp/kubernetes"]
+2021/03/26 15:06:30 [TRACE] buildProviderConfig for provider["registry.terraform.io/hashicorp/kubernetes"]: using explicit config only
+2021/03/26 15:06:30 [TRACE] GRPCProvider: GetSchema
+2021-03-26T15:06:30.812-0700 [TRACE] plugin.stdio: waiting for stdio data
+2021-03-26T15:06:30.813-0700 [INFO]  plugin: configuring client automatic mTLS
+2021-03-26T15:06:30.844-0700 [DEBUG] plugin: starting plugin: path=.terraform/providers/localhost/test/kubernetes/9.9.9/linux_amd64/terraform-provider-kubernetes_9.9.9_linux_amd64 args=[.terraform/providers/localhost/test/kubernetes/9.9.9/linux_amd64/terraform-provider-kubernetes_9.9.9_linux_amd64]
+2021-03-26T15:06:30.844-0700 [DEBUG] plugin: plugin started: path=.terraform/providers/localhost/test/kubernetes/9.9.9/linux_amd64/terraform-provider-kubernetes_9.9.9_linux_amd64 pid=237435
+2021-03-26T15:06:30.844-0700 [DEBUG] plugin: waiting for RPC address: path=.terraform/providers/localhost/test/kubernetes/9.9.9/linux_amd64/terraform-provider-kubernetes_9.9.9_linux_amd64
+2021/03/26 15:06:30 [TRACE] GRPCProvider: PrepareProviderConfig
+2021/03/26 15:06:30 [TRACE] vertex "provider[\"registry.terraform.io/hashicorp/kubernetes\"]": visit complete
+2021/03/26 15:06:30 [TRACE] dag/walk: visiting "module.community-module.kubernetes_namespace.test"
+2021/03/26 15:06:30 [TRACE] vertex "module.community-module.kubernetes_namespace.test": starting visit (*terraform.NodeValidatableResource)
+2021-03-26T15:06:30.894-0700 [INFO]  plugin.terraform-provider-kubernetes_9.9.9_linux_amd64: configuring server automatic mTLS: timestamp=2021-03-26T15:06:30.893-0700
+2021-03-26T15:06:30.932-0700 [DEBUG] plugin.terraform-provider-kubernetes_9.9.9_linux_amd64: plugin address: address=/tmp/plugin637689746 network=unix timestamp=2021-03-26T15:06:30.932-0700
+2021-03-26T15:06:30.932-0700 [DEBUG] plugin: using plugin: version=5
+2021/03/26 15:06:30 [TRACE] BuiltinEvalContext: Initialized "provider[\"localhost/test/kubernetes\"]" provider for provider["localhost/test/kubernetes"]
+2021/03/26 15:06:30 [TRACE] buildProviderConfig for provider["localhost/test/kubernetes"]: using explicit config only
+2021/03/26 15:06:30 [TRACE] GRPCProvider: GetSchema
+2021-03-26T15:06:30.977-0700 [TRACE] plugin.stdio: waiting for stdio data
+2021/03/26 15:06:30 [TRACE] GRPCProvider: ValidateResourceTypeConfig
+2021/03/26 15:06:30 [TRACE] vertex "module.community-module.kubernetes_namespace.test": visit complete
+2021/03/26 15:06:30 [TRACE] dag/walk: visiting "provider[\"registry.terraform.io/hashicorp/kubernetes\"] (close)"
+2021/03/26 15:06:30 [TRACE] dag/walk: visiting "module.community-module (close)"
+2021/03/26 15:06:30 [TRACE] vertex "module.community-module (close)": starting visit (*terraform.nodeCloseModule)
+2021/03/26 15:06:30 [TRACE] vertex "module.community-module (close)": visit complete
+2021/03/26 15:06:30 [TRACE] vertex "provider[\"registry.terraform.io/hashicorp/kubernetes\"] (close)": starting visit (*terraform.graphNodeCloseProvider)
+2021/03/26 15:06:30 [TRACE] GRPCProvider: Close
+2021-03-26T15:06:30.983-0700 [WARN]  plugin.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = transport is closing"
+2021-03-26T15:06:30.986-0700 [DEBUG] plugin: plugin process exited: path=.terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.0.3/linux_amd64/terraform-provider-kubernetes_v2.0.3_x5 pid=237422
+2021-03-26T15:06:30.986-0700 [DEBUG] plugin: plugin exited
+2021/03/26 15:06:30 [TRACE] vertex "provider[\"registry.terraform.io/hashicorp/kubernetes\"] (close)": visit complete
+2021/03/26 15:06:31 [TRACE] GRPCProvider: PrepareProviderConfig
+2021/03/26 15:06:31 [TRACE] vertex "provider[\"localhost/test/kubernetes\"]": visit complete
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "module.kubernetes-test.kubernetes_namespace.test"
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test.kubernetes_namespace.test": starting visit (*terraform.NodeValidatableResource)
+2021/03/26 15:06:31 [TRACE] GRPCProvider: ValidateResourceTypeConfig
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test.kubernetes_namespace.test": visit complete
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "module.kubernetes-test (close)"
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test (close)": starting visit (*terraform.nodeCloseModule)
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test (close)": visit complete
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "provider[\"localhost/test/kubernetes\"] (close)"
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "meta.count-boundary (EachMode fixup)"
+2021/03/26 15:06:31 [TRACE] vertex "meta.count-boundary (EachMode fixup)": starting visit (*terraform.NodeCountBoundary)
+2021/03/26 15:06:31 [TRACE] vertex "provider[\"localhost/test/kubernetes\"] (close)": starting visit (*terraform.graphNodeCloseProvider)
+2021/03/26 15:06:31 [TRACE] vertex "meta.count-boundary (EachMode fixup)": visit complete
+2021/03/26 15:06:31 [TRACE] GRPCProvider: Close
+2021-03-26T15:06:31.039-0700 [WARN]  plugin.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = transport is closing"
+2021-03-26T15:06:31.041-0700 [DEBUG] plugin: plugin process exited: path=.terraform/providers/localhost/test/kubernetes/9.9.9/linux_amd64/terraform-provider-kubernetes_9.9.9_linux_amd64 pid=237435
+2021-03-26T15:06:31.041-0700 [DEBUG] plugin: plugin exited
+2021/03/26 15:06:31 [TRACE] vertex "provider[\"localhost/test/kubernetes\"] (close)": visit complete
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "root"
+2021/03/26 15:06:31 [TRACE] vertex "root": starting visit (*terraform.nodeCloseModule)
+2021/03/26 15:06:31 [TRACE] vertex "root": visit complete
+2021/03/26 15:06:31 [INFO] backend/local: apply calling Plan
+2021/03/26 15:06:31 [INFO] terraform: building graph: GraphTypePlan
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.ConfigTransformer
+2021/03/26 15:06:31 [TRACE] ConfigTransformer: Starting for path: 
+2021/03/26 15:06:31 [TRACE] ConfigTransformer: Starting for path: module.community-module
+2021/03/26 15:06:31 [TRACE] ConfigTransformer: Starting for path: module.kubernetes-test
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.ConfigTransformer with new graph:
+  module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+  module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+  ------
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.RootVariableTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.RootVariableTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.ModuleVariableTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.ModuleVariableTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.LocalTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.LocalTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.OutputTransformer
+2021/03/26 15:06:31 [TRACE] OutputTransformer: adding filename as *terraform.nodeExpandOutput
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.OutputTransformer with new graph:
+  module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+  ------
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.OrphanResourceInstanceTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.OrphanResourceInstanceTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.StateTransformer
+2021/03/26 15:06:31 [TRACE] StateTransformer: state is empty, so nothing to do
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.StateTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.AttachStateTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.AttachStateTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.OrphanOutputTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.OrphanOutputTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.AttachResourceConfigTransformer
+2021/03/26 15:06:31 [TRACE] AttachResourceConfigTransformer: attaching to "module.community-module.kubernetes_namespace.test (expand)" (*terraform.nodeExpandPlannableResource) config from community-module/main.tf:13,1-37
+2021/03/26 15:06:31 [TRACE] AttachResourceConfigTransformer: attaching provider meta configs to module.community-module.kubernetes_namespace.test (expand)
+2021/03/26 15:06:31 [TRACE] AttachResourceConfigTransformer: attaching to "module.kubernetes-test.kubernetes_namespace.test (expand)" (*terraform.nodeExpandPlannableResource) config from kubernetes-test/main.tf:13,1-37
+2021/03/26 15:06:31 [TRACE] AttachResourceConfigTransformer: attaching provider meta configs to module.kubernetes-test.kubernetes_namespace.test (expand)
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.AttachResourceConfigTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.MissingProvisionerTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.MissingProvisionerTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.ProvisionerTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.ProvisionerTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.graphTransformerMulti
+2021/03/26 15:06:31 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ProviderConfigTransformer
+2021/03/26 15:06:31 [TRACE] ProviderConfigTransformer: attaching to "provider[\"registry.terraform.io/hashicorp/kubernetes\"]" provider configuration from main.tf:20,1-31
+2021/03/26 15:06:31 [TRACE] ProviderConfigTransformer: attaching to "provider[\"localhost/test/kubernetes\"]" provider configuration from main.tf:25,1-28
+2021/03/26 15:06:31 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ProviderConfigTransformer with new graph:
+  module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.community-module.provider["registry.terraform.io/hashicorp/kubernetes"] (proxy) - *terraform.graphNodeProxyProvider
+  module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+  module.kubernetes-test.provider["localhost/test/kubernetes"] (proxy) - *terraform.graphNodeProxyProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  ------
+2021/03/26 15:06:31 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.MissingProviderTransformer
+2021/03/26 15:06:31 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.MissingProviderTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ProviderTransformer
+2021/03/26 15:06:31 [TRACE] ProviderTransformer: exact match for module.community-module.provider["registry.terraform.io/hashicorp/kubernetes"] serving module.community-module.kubernetes_namespace.test (expand)
+2021/03/26 15:06:31 [DEBUG] ProviderTransformer: "module.community-module.kubernetes_namespace.test (expand)" (*terraform.nodeExpandPlannableResource) needs provider["registry.terraform.io/hashicorp/kubernetes"]
+2021/03/26 15:06:31 [TRACE] ProviderTransformer: exact match for module.kubernetes-test.provider["localhost/test/kubernetes"] serving module.kubernetes-test.kubernetes_namespace.test (expand)
+2021/03/26 15:06:31 [DEBUG] ProviderTransformer: "module.kubernetes-test.kubernetes_namespace.test (expand)" (*terraform.nodeExpandPlannableResource) needs provider["localhost/test/kubernetes"]
+2021/03/26 15:06:31 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ProviderTransformer with new graph:
+  module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  ------
+2021/03/26 15:06:31 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.PruneProviderTransformer
+2021/03/26 15:06:31 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.PruneProviderTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ParentProviderTransformer
+2021/03/26 15:06:31 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ParentProviderTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.graphTransformerMulti with new graph:
+  module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  ------
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.RemovedModuleTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.RemovedModuleTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.AttachSchemaTransformer
+2021/03/26 15:06:31 [TRACE] AttachSchemaTransformer: attaching resource schema to module.community-module.kubernetes_namespace.test (expand)
+2021/03/26 15:06:31 [TRACE] AttachSchemaTransformer: attaching resource schema to module.kubernetes-test.kubernetes_namespace.test (expand)
+2021/03/26 15:06:31 [TRACE] AttachSchemaTransformer: attaching provider config schema to provider["registry.terraform.io/hashicorp/kubernetes"]
+2021/03/26 15:06:31 [TRACE] AttachSchemaTransformer: attaching provider config schema to provider["localhost/test/kubernetes"]
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.AttachSchemaTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.ModuleExpansionTransformer
+2021/03/26 15:06:31 [TRACE] ModuleExpansionTransformer: Added module.community-module as *terraform.nodeExpandModule
+2021/03/26 15:06:31 [TRACE] ModuleExpansionTransformer: module.community-module.output.filename (expand) must wait for expansion of module.community-module
+2021/03/26 15:06:31 [TRACE] ModuleExpansionTransformer: module.community-module (close) must wait for expansion of module.community-module
+2021/03/26 15:06:31 [TRACE] ModuleExpansionTransformer: module.community-module.kubernetes_namespace.test (expand) must wait for expansion of module.community-module
+2021/03/26 15:06:31 [TRACE] ModuleExpansionTransformer: Added module.kubernetes-test as *terraform.nodeExpandModule
+2021/03/26 15:06:31 [TRACE] ModuleExpansionTransformer: module.kubernetes-test.kubernetes_namespace.test (expand) must wait for expansion of module.kubernetes-test
+2021/03/26 15:06:31 [TRACE] ModuleExpansionTransformer: module.kubernetes-test (close) must wait for expansion of module.kubernetes-test
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.ModuleExpansionTransformer with new graph:
+  module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module (expand) - *terraform.nodeExpandModule
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.community-module (expand) - *terraform.nodeExpandModule
+  module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    module.community-module (expand) - *terraform.nodeExpandModule
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.community-module (expand) - *terraform.nodeExpandModule
+  module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+  module.kubernetes-test (expand) - *terraform.nodeExpandModule
+  module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  ------
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.ReferenceTransformer
+2021/03/26 15:06:31 [DEBUG] ReferenceTransformer: "module.community-module.output.filename (expand)" references: []
+2021/03/26 15:06:31 [DEBUG] ReferenceTransformer: "provider[\"localhost/test/kubernetes\"]" references: [module.community-module.output.filename (expand)]
+2021/03/26 15:06:31 [DEBUG] ReferenceTransformer: "module.kubernetes-test (expand)" references: []
+2021/03/26 15:06:31 [DEBUG] ReferenceTransformer: "module.community-module.kubernetes_namespace.test (expand)" references: []
+2021/03/26 15:06:31 [DEBUG] ReferenceTransformer: "provider[\"registry.terraform.io/hashicorp/kubernetes\"]" references: []
+2021/03/26 15:06:31 [DEBUG] ReferenceTransformer: "module.community-module (expand)" references: []
+2021/03/26 15:06:31 [DEBUG] ReferenceTransformer: "module.community-module (close)" references: []
+2021/03/26 15:06:31 [DEBUG] ReferenceTransformer: "module.kubernetes-test (close)" references: []
+2021/03/26 15:06:31 [DEBUG] ReferenceTransformer: "module.kubernetes-test.kubernetes_namespace.test (expand)" references: []
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.ReferenceTransformer with new graph:
+  module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module (expand) - *terraform.nodeExpandModule
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.community-module (expand) - *terraform.nodeExpandModule
+  module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    module.community-module (expand) - *terraform.nodeExpandModule
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.community-module (expand) - *terraform.nodeExpandModule
+  module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+  module.kubernetes-test (expand) - *terraform.nodeExpandModule
+  module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  ------
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.AttachDependenciesTransformer
+2021/03/26 15:06:31 [TRACE] AttachDependenciesTransformer: module.kubernetes-test.kubernetes_namespace.test depends on []
+2021/03/26 15:06:31 [TRACE] AttachDependenciesTransformer: module.community-module.kubernetes_namespace.test depends on []
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.AttachDependenciesTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.attachDataResourceDependenciesTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.attachDataResourceDependenciesTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.TargetsTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.TargetsTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.ForcedCBDTransformer
+2021/03/26 15:06:31 [TRACE] ForcedCBDTransformer: "module.kubernetes-test.kubernetes_namespace.test (expand)" (*terraform.nodeExpandPlannableResource) has no CBD descendent, so skipping
+2021/03/26 15:06:31 [TRACE] ForcedCBDTransformer: "module.community-module.kubernetes_namespace.test (expand)" (*terraform.nodeExpandPlannableResource) has no CBD descendent, so skipping
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.ForcedCBDTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.CountBoundaryTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.CountBoundaryTransformer with new graph:
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module (expand) - *terraform.nodeExpandModule
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module (expand) - *terraform.nodeExpandModule
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.community-module (expand) - *terraform.nodeExpandModule
+  module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    module.community-module (expand) - *terraform.nodeExpandModule
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.community-module (expand) - *terraform.nodeExpandModule
+  module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+  module.kubernetes-test (expand) - *terraform.nodeExpandModule
+  module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  ------
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.CloseProviderTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.CloseProviderTransformer with new graph:
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module (expand) - *terraform.nodeExpandModule
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module (expand) - *terraform.nodeExpandModule
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.community-module (expand) - *terraform.nodeExpandModule
+  module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    module.community-module (expand) - *terraform.nodeExpandModule
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.community-module (expand) - *terraform.nodeExpandModule
+  module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+  module.kubernetes-test (expand) - *terraform.nodeExpandModule
+  module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  provider["localhost/test/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  ------
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.CloseRootModuleTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.CloseRootModuleTransformer with new graph:
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module (expand) - *terraform.nodeExpandModule
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module (expand) - *terraform.nodeExpandModule
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.community-module (expand) - *terraform.nodeExpandModule
+  module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    module.community-module (expand) - *terraform.nodeExpandModule
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.community-module (expand) - *terraform.nodeExpandModule
+  module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+  module.kubernetes-test (expand) - *terraform.nodeExpandModule
+  module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  provider["localhost/test/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  root - *terraform.nodeCloseModule
+    meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    provider["localhost/test/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+    provider["registry.terraform.io/hashicorp/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+  ------
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.TransitiveReductionTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.TransitiveReductionTransformer with new graph:
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    module.community-module (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (close) - *terraform.nodeCloseModule
+  module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.community-module (expand) - *terraform.nodeExpandModule
+  module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    module.community-module (expand) - *terraform.nodeExpandModule
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.community-module (expand) - *terraform.nodeExpandModule
+  module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+  module.kubernetes-test (expand) - *terraform.nodeExpandModule
+  module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  provider["localhost/test/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandPlannableResource
+  root - *terraform.nodeCloseModule
+    meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    provider["localhost/test/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+    provider["registry.terraform.io/hashicorp/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+  ------
+2021/03/26 15:06:31 [DEBUG] Starting graph walk: walkPlan
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "module.community-module (expand)"
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module (expand)": starting visit (*terraform.nodeExpandModule)
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module (expand)": visit complete
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "provider[\"registry.terraform.io/hashicorp/kubernetes\"]"
+2021/03/26 15:06:31 [TRACE] vertex "provider[\"registry.terraform.io/hashicorp/kubernetes\"]": starting visit (*terraform.NodeApplyableProvider)
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "module.kubernetes-test (expand)"
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "module.community-module.output.filename (expand)"
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.output.filename (expand)": starting visit (*terraform.nodeExpandOutput)
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test (expand)": starting visit (*terraform.nodeExpandModule)
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.output.filename (expand)": expanding dynamic subgraph
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test (expand)": visit complete
+2021/03/26 15:06:31 [TRACE] Expanding output: adding module.community-module.output.filename as *terraform.NodeApplyableOutput
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.output.filename (expand)": entering dynamic subgraph
+2021-03-26T15:06:31.043-0700 [INFO]  plugin: configuring client automatic mTLS
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "module.community-module.output.filename"
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.output.filename": starting visit (*terraform.NodeApplyableOutput)
+2021/03/26 15:06:31 [TRACE] ExecuteWriteOutput: Saving Create change for module.community-module.output.filename in changeset
+2021/03/26 15:06:31 [TRACE] EvalWriteOutput: Saving value for module.community-module.output.filename in state
+2021/03/26 15:06:31 [TRACE] ExecuteWriteOutput: Saving Create change for module.community-module.output.filename in changeset
+2021/03/26 15:06:31 [TRACE] EvalWriteOutput: Saving value for module.community-module.output.filename in state
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.output.filename": visit complete
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.output.filename (expand)": dynamic subgraph completed successfully
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.output.filename (expand)": visit complete
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "provider[\"localhost/test/kubernetes\"]"
+2021/03/26 15:06:31 [TRACE] vertex "provider[\"localhost/test/kubernetes\"]": starting visit (*terraform.NodeApplyableProvider)
+2021-03-26T15:06:31.070-0700 [DEBUG] plugin: starting plugin: path=.terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.0.3/linux_amd64/terraform-provider-kubernetes_v2.0.3_x5 args=[.terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.0.3/linux_amd64/terraform-provider-kubernetes_v2.0.3_x5]
+2021-03-26T15:06:31.070-0700 [DEBUG] plugin: plugin started: path=.terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.0.3/linux_amd64/terraform-provider-kubernetes_v2.0.3_x5 pid=237449
+2021-03-26T15:06:31.070-0700 [DEBUG] plugin: waiting for RPC address: path=.terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.0.3/linux_amd64/terraform-provider-kubernetes_v2.0.3_x5
+2021-03-26T15:06:31.109-0700 [INFO]  plugin.terraform-provider-kubernetes_v2.0.3_x5: configuring server automatic mTLS: timestamp=2021-03-26T15:06:31.109-0700
+2021-03-26T15:06:31.145-0700 [DEBUG] plugin: using plugin: version=5
+2021-03-26T15:06:31.145-0700 [DEBUG] plugin.terraform-provider-kubernetes_v2.0.3_x5: plugin address: address=/tmp/plugin307739044 network=unix timestamp=2021-03-26T15:06:31.145-0700
+2021/03/26 15:06:31 [TRACE] BuiltinEvalContext: Initialized "provider[\"registry.terraform.io/hashicorp/kubernetes\"]" provider for provider["registry.terraform.io/hashicorp/kubernetes"]
+2021/03/26 15:06:31 [TRACE] buildProviderConfig for provider["registry.terraform.io/hashicorp/kubernetes"]: using explicit config only
+2021/03/26 15:06:31 [TRACE] GRPCProvider: GetSchema
+2021-03-26T15:06:31.197-0700 [TRACE] plugin.stdio: waiting for stdio data
+2021-03-26T15:06:31.197-0700 [INFO]  plugin: configuring client automatic mTLS
+2021-03-26T15:06:31.228-0700 [DEBUG] plugin: starting plugin: path=.terraform/providers/localhost/test/kubernetes/9.9.9/linux_amd64/terraform-provider-kubernetes_9.9.9_linux_amd64 args=[.terraform/providers/localhost/test/kubernetes/9.9.9/linux_amd64/terraform-provider-kubernetes_9.9.9_linux_amd64]
+2021-03-26T15:06:31.228-0700 [DEBUG] plugin: plugin started: path=.terraform/providers/localhost/test/kubernetes/9.9.9/linux_amd64/terraform-provider-kubernetes_9.9.9_linux_amd64 pid=237462
+2021-03-26T15:06:31.228-0700 [DEBUG] plugin: waiting for RPC address: path=.terraform/providers/localhost/test/kubernetes/9.9.9/linux_amd64/terraform-provider-kubernetes_9.9.9_linux_amd64
+2021-03-26T15:06:31.267-0700 [INFO]  plugin.terraform-provider-kubernetes_9.9.9_linux_amd64: configuring server automatic mTLS: timestamp=2021-03-26T15:06:31.267-0700
+2021-03-26T15:06:31.301-0700 [DEBUG] plugin.terraform-provider-kubernetes_9.9.9_linux_amd64: plugin address: address=/tmp/plugin420257411 network=unix timestamp=2021-03-26T15:06:31.301-0700
+2021-03-26T15:06:31.301-0700 [DEBUG] plugin: using plugin: version=5
+2021/03/26 15:06:31 [TRACE] BuiltinEvalContext: Initialized "provider[\"localhost/test/kubernetes\"]" provider for provider["localhost/test/kubernetes"]
+2021-03-26T15:06:31.349-0700 [TRACE] plugin.stdio: waiting for stdio data
+2021/03/26 15:06:31 [TRACE] buildProviderConfig for provider["localhost/test/kubernetes"]: using explicit config only
+2021/03/26 15:06:31 [TRACE] GRPCProvider: GetSchema
+2021/03/26 15:06:31 [TRACE] GRPCProvider: Configure
+2021-03-26T15:06:31.351-0700 [INFO]  plugin.terraform-provider-kubernetes_v2.0.3_x5: 2021/03/26 15:06:31 [DEBUG] Using kubeconfig: /home/dakini/.kube/config: timestamp=2021-03-26T15:06:31.351-0700
+2021-03-26T15:06:31.353-0700 [INFO]  plugin.terraform-provider-kubernetes_v2.0.3_x5: 2021/03/26 15:06:31 [DEBUG] Enabling HTTP requests/responses tracing: timestamp=2021-03-26T15:06:31.352-0700
+2021/03/26 15:06:31 [TRACE] vertex "provider[\"registry.terraform.io/hashicorp/kubernetes\"]": visit complete
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "module.community-module.kubernetes_namespace.test (expand)"
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.kubernetes_namespace.test (expand)": starting visit (*terraform.nodeExpandPlannableResource)
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.kubernetes_namespace.test (expand)": expanding dynamic subgraph
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.kubernetes_namespace.test (expand)": entering dynamic subgraph
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "module.community-module.kubernetes_namespace.test"
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.kubernetes_namespace.test": starting visit (*terraform.NodePlannableResource)
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.kubernetes_namespace.test": expanding dynamic subgraph
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.ResourceCountTransformer
+2021/03/26 15:06:31 [TRACE] ResourceCountTransformer: adding module.community-module.kubernetes_namespace.test as *terraform.NodePlannableResourceInstance
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.ResourceCountTransformer with new graph:
+  module.community-module.kubernetes_namespace.test - *terraform.NodePlannableResourceInstance
+  ------
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.OrphanResourceInstanceCountTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.OrphanResourceInstanceCountTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.AttachStateTransformer
+2021/03/26 15:06:31 [DEBUG] Resource instance state not found for node "module.community-module.kubernetes_namespace.test", instance module.community-module.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.AttachStateTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.TargetsTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.TargetsTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.ReferenceTransformer
+2021/03/26 15:06:31 [DEBUG] ReferenceTransformer: "module.community-module.kubernetes_namespace.test" references: []
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.ReferenceTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.RootTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.RootTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.kubernetes_namespace.test": entering dynamic subgraph
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "module.community-module.kubernetes_namespace.test"
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.kubernetes_namespace.test": starting visit (*terraform.NodePlannableResourceInstance)
+2021/03/26 15:06:31 [TRACE] ReadResourceInstanceState: reading state for module.community-module.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] ReadResourceInstanceState: no state present for module.community-module.kubernetes_namespace.test
+2021/03/26 15:06:31 [DEBUG] refresh: module.community-module.kubernetes_namespace.test: no state, so not refreshing
+2021/03/26 15:06:31 [TRACE] EvalWriteState: using RefreshState for module.community-module.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] EvalWriteState: removing state object for module.community-module.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] Re-validating config for "module.community-module.kubernetes_namespace.test"
+2021/03/26 15:06:31 [TRACE] GRPCProvider: ValidateResourceTypeConfig
+2021/03/26 15:06:31 [TRACE] GRPCProvider: PlanResourceChange
+2021/03/26 15:06:31 [TRACE] EvalWriteState: writing current state object for module.community-module.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] EvalWriteDiff: recorded Create change for module.community-module.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.kubernetes_namespace.test": visit complete
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.kubernetes_namespace.test": dynamic subgraph completed successfully
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.kubernetes_namespace.test": visit complete
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.kubernetes_namespace.test (expand)": dynamic subgraph completed successfully
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.kubernetes_namespace.test (expand)": visit complete
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "module.community-module (close)"
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module (close)": starting visit (*terraform.nodeCloseModule)
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module (close)": visit complete
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "provider[\"registry.terraform.io/hashicorp/kubernetes\"] (close)"
+2021/03/26 15:06:31 [TRACE] vertex "provider[\"registry.terraform.io/hashicorp/kubernetes\"] (close)": starting visit (*terraform.graphNodeCloseProvider)
+2021/03/26 15:06:31 [TRACE] GRPCProvider: Close
+2021-03-26T15:06:31.356-0700 [WARN]  plugin.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = transport is closing"
+2021-03-26T15:06:31.359-0700 [DEBUG] plugin: plugin process exited: path=.terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.0.3/linux_amd64/terraform-provider-kubernetes_v2.0.3_x5 pid=237449
+2021-03-26T15:06:31.359-0700 [DEBUG] plugin: plugin exited
+2021/03/26 15:06:31 [TRACE] vertex "provider[\"registry.terraform.io/hashicorp/kubernetes\"] (close)": visit complete
+2021/03/26 15:06:31 [TRACE] GRPCProvider: Configure
+2021-03-26T15:06:31.384-0700 [INFO]  plugin.terraform-provider-kubernetes_9.9.9_linux_amd64: 2021/03/26 15:06:31 [DEBUG] Using kubeconfig: /home/dakini/.kube/second: timestamp=2021-03-26T15:06:31.383-0700
+2021-03-26T15:06:31.385-0700 [INFO]  plugin.terraform-provider-kubernetes_9.9.9_linux_amd64: 2021/03/26 15:06:31 [DEBUG] Enabling HTTP requests/responses tracing: timestamp=2021-03-26T15:06:31.385-0700
+2021/03/26 15:06:31 [TRACE] vertex "provider[\"localhost/test/kubernetes\"]": visit complete
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "module.kubernetes-test.kubernetes_namespace.test (expand)"
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test.kubernetes_namespace.test (expand)": starting visit (*terraform.nodeExpandPlannableResource)
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test.kubernetes_namespace.test (expand)": expanding dynamic subgraph
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test.kubernetes_namespace.test (expand)": entering dynamic subgraph
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "module.kubernetes-test.kubernetes_namespace.test"
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test.kubernetes_namespace.test": starting visit (*terraform.NodePlannableResource)
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test.kubernetes_namespace.test": expanding dynamic subgraph
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.ResourceCountTransformer
+2021/03/26 15:06:31 [TRACE] ResourceCountTransformer: adding module.kubernetes-test.kubernetes_namespace.test as *terraform.NodePlannableResourceInstance
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.ResourceCountTransformer with new graph:
+  module.kubernetes-test.kubernetes_namespace.test - *terraform.NodePlannableResourceInstance
+  ------
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.OrphanResourceInstanceCountTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.OrphanResourceInstanceCountTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.AttachStateTransformer
+2021/03/26 15:06:31 [DEBUG] Resource instance state not found for node "module.kubernetes-test.kubernetes_namespace.test", instance module.kubernetes-test.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.AttachStateTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.TargetsTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.TargetsTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.ReferenceTransformer
+2021/03/26 15:06:31 [DEBUG] ReferenceTransformer: "module.kubernetes-test.kubernetes_namespace.test" references: []
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.ReferenceTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.RootTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.RootTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test.kubernetes_namespace.test": entering dynamic subgraph
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "module.kubernetes-test.kubernetes_namespace.test"
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test.kubernetes_namespace.test": starting visit (*terraform.NodePlannableResourceInstance)
+2021/03/26 15:06:31 [TRACE] ReadResourceInstanceState: reading state for module.kubernetes-test.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] ReadResourceInstanceState: no state present for module.kubernetes-test.kubernetes_namespace.test
+2021/03/26 15:06:31 [DEBUG] refresh: module.kubernetes-test.kubernetes_namespace.test: no state, so not refreshing
+2021/03/26 15:06:31 [TRACE] EvalWriteState: using RefreshState for module.kubernetes-test.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] states.SyncState: pruning module.kubernetes-test because it is empty
+2021/03/26 15:06:31 [TRACE] EvalWriteState: removing state object for module.kubernetes-test.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] Re-validating config for "module.kubernetes-test.kubernetes_namespace.test"
+2021/03/26 15:06:31 [TRACE] GRPCProvider: ValidateResourceTypeConfig
+2021/03/26 15:06:31 [TRACE] GRPCProvider: PlanResourceChange
+2021/03/26 15:06:31 [TRACE] EvalWriteState: writing current state object for module.kubernetes-test.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] EvalWriteDiff: recorded Create change for module.kubernetes-test.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test.kubernetes_namespace.test": visit complete
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test.kubernetes_namespace.test": dynamic subgraph completed successfully
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test.kubernetes_namespace.test": visit complete
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test.kubernetes_namespace.test (expand)": dynamic subgraph completed successfully
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test.kubernetes_namespace.test (expand)": visit complete
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "provider[\"localhost/test/kubernetes\"] (close)"
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "module.kubernetes-test (close)"
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test (close)": starting visit (*terraform.nodeCloseModule)
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test (close)": visit complete
+2021/03/26 15:06:31 [TRACE] vertex "provider[\"localhost/test/kubernetes\"] (close)": starting visit (*terraform.graphNodeCloseProvider)
+2021/03/26 15:06:31 [TRACE] GRPCProvider: Close
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "meta.count-boundary (EachMode fixup)"
+2021/03/26 15:06:31 [TRACE] vertex "meta.count-boundary (EachMode fixup)": starting visit (*terraform.NodeCountBoundary)
+2021/03/26 15:06:31 [TRACE] vertex "meta.count-boundary (EachMode fixup)": visit complete
+2021-03-26T15:06:31.388-0700 [WARN]  plugin.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = transport is closing"
+2021-03-26T15:06:31.390-0700 [DEBUG] plugin: plugin process exited: path=.terraform/providers/localhost/test/kubernetes/9.9.9/linux_amd64/terraform-provider-kubernetes_9.9.9_linux_amd64 pid=237462
+2021-03-26T15:06:31.390-0700 [DEBUG] plugin: plugin exited
+2021/03/26 15:06:31 [TRACE] vertex "provider[\"localhost/test/kubernetes\"] (close)": visit complete
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "root"
+2021/03/26 15:06:31 [TRACE] vertex "root": starting visit (*terraform.nodeCloseModule)
+2021/03/26 15:06:31 [TRACE] vertex "root": visit complete
+2021/03/26 15:06:31 [INFO] backend/local: apply calling Apply
+2021/03/26 15:06:31 [INFO] terraform: building graph: GraphTypeApply
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.ConfigTransformer
+2021/03/26 15:06:31 [TRACE] ConfigTransformer: Starting for path: 
+2021/03/26 15:06:31 [TRACE] ConfigTransformer: Starting for path: module.community-module
+2021/03/26 15:06:31 [TRACE] ConfigTransformer: Starting for path: module.kubernetes-test
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.ConfigTransformer with new graph:
+  module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+  module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+  ------
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.RootVariableTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.RootVariableTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.ModuleVariableTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.ModuleVariableTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.LocalTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.LocalTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.OutputTransformer
+2021/03/26 15:06:31 [TRACE] OutputTransformer: adding filename as *terraform.nodeExpandOutput
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.OutputTransformer with new graph:
+  module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+  ------
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.DiffTransformer
+2021/03/26 15:06:31 [TRACE] DiffTransformer starting
+2021/03/26 15:06:31 [TRACE] DiffTransformer: found Create change for module.community-module.kubernetes_namespace.test 
+2021/03/26 15:06:31 [TRACE] DiffTransformer: module.community-module.kubernetes_namespace.test will be represented by module.community-module.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] DiffTransformer: found Create change for module.kubernetes-test.kubernetes_namespace.test 
+2021/03/26 15:06:31 [TRACE] DiffTransformer: module.kubernetes-test.kubernetes_namespace.test will be represented by module.kubernetes-test.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] DiffTransformer complete
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.DiffTransformer with new graph:
+  module.community-module.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+  module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+  module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+  ------
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.AttachStateTransformer
+2021/03/26 15:06:31 [DEBUG] Resource state not found for node "module.community-module.kubernetes_namespace.test", instance module.community-module.kubernetes_namespace.test
+2021/03/26 15:06:31 [DEBUG] Resource state not found for node "module.kubernetes-test.kubernetes_namespace.test", instance module.kubernetes-test.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.AttachStateTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.OrphanOutputTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.OrphanOutputTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.AttachResourceConfigTransformer
+2021/03/26 15:06:31 [TRACE] AttachResourceConfigTransformer: attaching to "module.community-module.kubernetes_namespace.test" (*terraform.NodeApplyableResourceInstance) config from community-module/main.tf:13,1-37
+2021/03/26 15:06:31 [TRACE] AttachResourceConfigTransformer: attaching provider meta configs to module.community-module.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] AttachResourceConfigTransformer: attaching to "module.kubernetes-test.kubernetes_namespace.test" (*terraform.NodeApplyableResourceInstance) config from kubernetes-test/main.tf:13,1-37
+2021/03/26 15:06:31 [TRACE] AttachResourceConfigTransformer: attaching provider meta configs to module.kubernetes-test.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] AttachResourceConfigTransformer: attaching to "module.community-module.kubernetes_namespace.test (expand)" (*terraform.nodeExpandApplyableResource) config from community-module/main.tf:13,1-37
+2021/03/26 15:06:31 [TRACE] AttachResourceConfigTransformer: attaching provider meta configs to module.community-module.kubernetes_namespace.test (expand)
+2021/03/26 15:06:31 [TRACE] AttachResourceConfigTransformer: attaching to "module.kubernetes-test.kubernetes_namespace.test (expand)" (*terraform.nodeExpandApplyableResource) config from kubernetes-test/main.tf:13,1-37
+2021/03/26 15:06:31 [TRACE] AttachResourceConfigTransformer: attaching provider meta configs to module.kubernetes-test.kubernetes_namespace.test (expand)
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.AttachResourceConfigTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.MissingProvisionerTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.MissingProvisionerTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.ProvisionerTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.ProvisionerTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.graphTransformerMulti
+2021/03/26 15:06:31 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ProviderConfigTransformer
+2021/03/26 15:06:31 [TRACE] ProviderConfigTransformer: attaching to "provider[\"registry.terraform.io/hashicorp/kubernetes\"]" provider configuration from main.tf:20,1-31
+2021/03/26 15:06:31 [TRACE] ProviderConfigTransformer: attaching to "provider[\"localhost/test/kubernetes\"]" provider configuration from main.tf:25,1-28
+2021/03/26 15:06:31 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ProviderConfigTransformer with new graph:
+  module.community-module.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+  module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.community-module.provider["registry.terraform.io/hashicorp/kubernetes"] (proxy) - *terraform.graphNodeProxyProvider
+  module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+  module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+  module.kubernetes-test.provider["localhost/test/kubernetes"] (proxy) - *terraform.graphNodeProxyProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  ------
+2021/03/26 15:06:31 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.MissingProviderTransformer
+2021/03/26 15:06:31 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.MissingProviderTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ProviderTransformer
+2021/03/26 15:06:31 [TRACE] ProviderTransformer: exact match for module.community-module.provider["registry.terraform.io/hashicorp/kubernetes"] serving module.community-module.kubernetes_namespace.test (expand)
+2021/03/26 15:06:31 [DEBUG] ProviderTransformer: "module.community-module.kubernetes_namespace.test (expand)" (*terraform.nodeExpandApplyableResource) needs provider["registry.terraform.io/hashicorp/kubernetes"]
+2021/03/26 15:06:31 [TRACE] ProviderTransformer: exact match for module.kubernetes-test.provider["localhost/test/kubernetes"] serving module.kubernetes-test.kubernetes_namespace.test (expand)
+2021/03/26 15:06:31 [DEBUG] ProviderTransformer: "module.kubernetes-test.kubernetes_namespace.test (expand)" (*terraform.nodeExpandApplyableResource) needs provider["localhost/test/kubernetes"]
+2021/03/26 15:06:31 [TRACE] ProviderTransformer: exact match for module.community-module.provider["registry.terraform.io/hashicorp/kubernetes"] serving module.community-module.kubernetes_namespace.test
+2021/03/26 15:06:31 [DEBUG] ProviderTransformer: "module.community-module.kubernetes_namespace.test" (*terraform.NodeApplyableResourceInstance) needs provider["registry.terraform.io/hashicorp/kubernetes"]
+2021/03/26 15:06:31 [TRACE] ProviderTransformer: exact match for module.kubernetes-test.provider["localhost/test/kubernetes"] serving module.kubernetes-test.kubernetes_namespace.test
+2021/03/26 15:06:31 [DEBUG] ProviderTransformer: "module.kubernetes-test.kubernetes_namespace.test" (*terraform.NodeApplyableResourceInstance) needs provider["localhost/test/kubernetes"]
+2021/03/26 15:06:31 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ProviderTransformer with new graph:
+  module.community-module.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  ------
+2021/03/26 15:06:31 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.PruneProviderTransformer
+2021/03/26 15:06:31 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.PruneProviderTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ParentProviderTransformer
+2021/03/26 15:06:31 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ParentProviderTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.graphTransformerMulti with new graph:
+  module.community-module.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  ------
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.RemovedModuleTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.RemovedModuleTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.AttachSchemaTransformer
+2021/03/26 15:06:31 [TRACE] AttachSchemaTransformer: attaching resource schema to module.kubernetes-test.kubernetes_namespace.test (expand)
+2021/03/26 15:06:31 [TRACE] AttachSchemaTransformer: attaching resource schema to module.community-module.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] AttachSchemaTransformer: attaching resource schema to module.community-module.kubernetes_namespace.test (expand)
+2021/03/26 15:06:31 [TRACE] AttachSchemaTransformer: attaching provider config schema to provider["registry.terraform.io/hashicorp/kubernetes"]
+2021/03/26 15:06:31 [TRACE] AttachSchemaTransformer: attaching provider config schema to provider["localhost/test/kubernetes"]
+2021/03/26 15:06:31 [TRACE] AttachSchemaTransformer: attaching resource schema to module.kubernetes-test.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.AttachSchemaTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.ModuleExpansionTransformer
+2021/03/26 15:06:31 [TRACE] ModuleExpansionTransformer: Added module.community-module as *terraform.nodeExpandModule
+2021/03/26 15:06:31 [TRACE] ModuleExpansionTransformer: module.community-module.kubernetes_namespace.test must wait for expansion of module.community-module
+2021/03/26 15:06:31 [TRACE] ModuleExpansionTransformer: module.community-module (close) must wait for expansion of module.community-module
+2021/03/26 15:06:31 [TRACE] ModuleExpansionTransformer: module.community-module.kubernetes_namespace.test (expand) must wait for expansion of module.community-module
+2021/03/26 15:06:31 [TRACE] ModuleExpansionTransformer: module.community-module.output.filename (expand) must wait for expansion of module.community-module
+2021/03/26 15:06:31 [TRACE] ModuleExpansionTransformer: Added module.kubernetes-test as *terraform.nodeExpandModule
+2021/03/26 15:06:31 [TRACE] ModuleExpansionTransformer: module.kubernetes-test.kubernetes_namespace.test must wait for expansion of module.kubernetes-test
+2021/03/26 15:06:31 [TRACE] ModuleExpansionTransformer: module.kubernetes-test (close) must wait for expansion of module.kubernetes-test
+2021/03/26 15:06:31 [TRACE] ModuleExpansionTransformer: module.kubernetes-test.kubernetes_namespace.test (expand) must wait for expansion of module.kubernetes-test
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.ModuleExpansionTransformer with new graph:
+  module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module (expand) - *terraform.nodeExpandModule
+    module.community-module.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.community-module (expand) - *terraform.nodeExpandModule
+  module.community-module.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.community-module (expand) - *terraform.nodeExpandModule
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    module.community-module (expand) - *terraform.nodeExpandModule
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.community-module (expand) - *terraform.nodeExpandModule
+  module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+  module.kubernetes-test (expand) - *terraform.nodeExpandModule
+  module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  ------
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.ReferenceTransformer
+2021/03/26 15:06:31 [DEBUG] ReferenceTransformer: "module.community-module (expand)" references: []
+2021/03/26 15:06:31 [DEBUG] ReferenceTransformer: "module.kubernetes-test (expand)" references: []
+2021/03/26 15:06:31 [DEBUG] ReferenceTransformer: "module.kubernetes-test (close)" references: []
+2021/03/26 15:06:31 [DEBUG] ReferenceTransformer: "module.kubernetes-test.kubernetes_namespace.test" references: []
+2021/03/26 15:06:31 [DEBUG] ReferenceTransformer: "provider[\"registry.terraform.io/hashicorp/kubernetes\"]" references: []
+2021/03/26 15:06:31 [DEBUG] ReferenceTransformer: "provider[\"localhost/test/kubernetes\"]" references: [module.community-module.output.filename (expand)]
+2021/03/26 15:06:31 [DEBUG] ReferenceTransformer: "module.community-module.kubernetes_namespace.test" references: []
+2021/03/26 15:06:31 [DEBUG] ReferenceTransformer: "module.community-module (close)" references: []
+2021/03/26 15:06:31 [DEBUG] ReferenceTransformer: "module.community-module.kubernetes_namespace.test (expand)" references: []
+2021/03/26 15:06:31 [DEBUG] ReferenceTransformer: "module.kubernetes-test.kubernetes_namespace.test (expand)" references: []
+2021/03/26 15:06:31 [DEBUG] ReferenceTransformer: "module.community-module.output.filename (expand)" references: []
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.ReferenceTransformer with new graph:
+  module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module (expand) - *terraform.nodeExpandModule
+    module.community-module.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.community-module (expand) - *terraform.nodeExpandModule
+  module.community-module.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.community-module (expand) - *terraform.nodeExpandModule
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    module.community-module (expand) - *terraform.nodeExpandModule
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.community-module (expand) - *terraform.nodeExpandModule
+  module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+  module.kubernetes-test (expand) - *terraform.nodeExpandModule
+  module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  ------
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.AttachDependenciesTransformer
+2021/03/26 15:06:31 [TRACE] AttachDependenciesTransformer: module.kubernetes-test.kubernetes_namespace.test depends on []
+2021/03/26 15:06:31 [TRACE] AttachDependenciesTransformer: module.community-module.kubernetes_namespace.test depends on []
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.AttachDependenciesTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.ForcedCBDTransformer
+2021/03/26 15:06:31 [TRACE] ForcedCBDTransformer: "module.kubernetes-test.kubernetes_namespace.test" (*terraform.NodeApplyableResourceInstance) has no CBD descendent, so skipping
+2021/03/26 15:06:31 [TRACE] ForcedCBDTransformer: "module.community-module.kubernetes_namespace.test" (*terraform.NodeApplyableResourceInstance) has no CBD descendent, so skipping
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.ForcedCBDTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.DestroyEdgeTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.DestroyEdgeTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.CBDEdgeTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.CBDEdgeTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.pruneUnusedNodesTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.pruneUnusedNodesTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.TargetsTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.TargetsTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.CountBoundaryTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.CountBoundaryTransformer with new graph:
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module (expand) - *terraform.nodeExpandModule
+    module.community-module.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module (expand) - *terraform.nodeExpandModule
+    module.community-module.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.community-module (expand) - *terraform.nodeExpandModule
+  module.community-module.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.community-module (expand) - *terraform.nodeExpandModule
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    module.community-module (expand) - *terraform.nodeExpandModule
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.community-module (expand) - *terraform.nodeExpandModule
+  module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+  module.kubernetes-test (expand) - *terraform.nodeExpandModule
+  module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  ------
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.CloseProviderTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.CloseProviderTransformer with new graph:
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module (expand) - *terraform.nodeExpandModule
+    module.community-module.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module (expand) - *terraform.nodeExpandModule
+    module.community-module.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.community-module (expand) - *terraform.nodeExpandModule
+  module.community-module.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.community-module (expand) - *terraform.nodeExpandModule
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    module.community-module (expand) - *terraform.nodeExpandModule
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.community-module (expand) - *terraform.nodeExpandModule
+  module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+  module.kubernetes-test (expand) - *terraform.nodeExpandModule
+  module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  provider["localhost/test/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+    module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+    module.community-module.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  ------
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.CloseProvisionerTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.CloseProvisionerTransformer (no changes)
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.CloseRootModuleTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.CloseRootModuleTransformer with new graph:
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module (expand) - *terraform.nodeExpandModule
+    module.community-module.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module (expand) - *terraform.nodeExpandModule
+    module.community-module.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.community-module (expand) - *terraform.nodeExpandModule
+  module.community-module.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.community-module (expand) - *terraform.nodeExpandModule
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    module.community-module (expand) - *terraform.nodeExpandModule
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.community-module (expand) - *terraform.nodeExpandModule
+  module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+  module.kubernetes-test (expand) - *terraform.nodeExpandModule
+  module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  provider["localhost/test/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+    module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+    module.community-module.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  root - *terraform.nodeCloseModule
+    meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    provider["localhost/test/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+    provider["registry.terraform.io/hashicorp/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+  ------
+2021/03/26 15:06:31 [TRACE] Executing graph transform *terraform.TransitiveReductionTransformer
+2021/03/26 15:06:31 [TRACE] Completed graph transform *terraform.TransitiveReductionTransformer with new graph:
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    module.community-module (close) - *terraform.nodeCloseModule
+    module.kubernetes-test (close) - *terraform.nodeCloseModule
+  module.community-module (close) - *terraform.nodeCloseModule
+    module.community-module.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  module.community-module (expand) - *terraform.nodeExpandModule
+  module.community-module.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+  module.community-module.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    module.community-module (expand) - *terraform.nodeExpandModule
+    provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+    module.community-module (expand) - *terraform.nodeExpandModule
+  module.kubernetes-test (close) - *terraform.nodeCloseModule
+    module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+  module.kubernetes-test (expand) - *terraform.nodeExpandModule
+  module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+    module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+  module.kubernetes-test.kubernetes_namespace.test (expand) - *terraform.nodeExpandApplyableResource
+    module.kubernetes-test (expand) - *terraform.nodeExpandModule
+    provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["localhost/test/kubernetes"] - *terraform.NodeApplyableProvider
+    module.community-module.output.filename (expand) - *terraform.nodeExpandOutput
+  provider["localhost/test/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+    module.kubernetes-test.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+  provider["registry.terraform.io/hashicorp/kubernetes"] - *terraform.NodeApplyableProvider
+  provider["registry.terraform.io/hashicorp/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+    module.community-module.kubernetes_namespace.test - *terraform.NodeApplyableResourceInstance
+  root - *terraform.nodeCloseModule
+    meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    provider["localhost/test/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+    provider["registry.terraform.io/hashicorp/kubernetes"] (close) - *terraform.graphNodeCloseProvider
+  ------
+2021/03/26 15:06:31 [DEBUG] Starting graph walk: walkApply
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "provider[\"registry.terraform.io/hashicorp/kubernetes\"]"
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "module.community-module (expand)"
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "module.kubernetes-test (expand)"
+2021/03/26 15:06:31 [TRACE] vertex "provider[\"registry.terraform.io/hashicorp/kubernetes\"]": starting visit (*terraform.NodeApplyableProvider)
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module (expand)": starting visit (*terraform.nodeExpandModule)
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test (expand)": starting visit (*terraform.nodeExpandModule)
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test (expand)": visit complete
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module (expand)": visit complete
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "module.community-module.output.filename (expand)"
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.output.filename (expand)": starting visit (*terraform.nodeExpandOutput)
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.output.filename (expand)": expanding dynamic subgraph
+2021/03/26 15:06:31 [TRACE] Expanding output: adding module.community-module.output.filename as *terraform.NodeApplyableOutput
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.output.filename (expand)": entering dynamic subgraph
+2021-03-26T15:06:31.393-0700 [INFO]  plugin: configuring client automatic mTLS
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "module.community-module.output.filename"
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.output.filename": starting visit (*terraform.NodeApplyableOutput)
+2021/03/26 15:06:31 [TRACE] ExecuteWriteOutput: Saving Create change for module.community-module.output.filename in changeset
+2021/03/26 15:06:31 [TRACE] EvalWriteOutput: Saving value for module.community-module.output.filename in state
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.output.filename": visit complete
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.output.filename (expand)": dynamic subgraph completed successfully
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.output.filename (expand)": visit complete
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "provider[\"localhost/test/kubernetes\"]"
+2021/03/26 15:06:31 [TRACE] vertex "provider[\"localhost/test/kubernetes\"]": starting visit (*terraform.NodeApplyableProvider)
+2021-03-26T15:06:31.419-0700 [DEBUG] plugin: starting plugin: path=.terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.0.3/linux_amd64/terraform-provider-kubernetes_v2.0.3_x5 args=[.terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.0.3/linux_amd64/terraform-provider-kubernetes_v2.0.3_x5]
+2021-03-26T15:06:31.419-0700 [DEBUG] plugin: plugin started: path=.terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.0.3/linux_amd64/terraform-provider-kubernetes_v2.0.3_x5 pid=237475
+2021-03-26T15:06:31.420-0700 [DEBUG] plugin: waiting for RPC address: path=.terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.0.3/linux_amd64/terraform-provider-kubernetes_v2.0.3_x5
+2021-03-26T15:06:31.458-0700 [INFO]  plugin.terraform-provider-kubernetes_v2.0.3_x5: configuring server automatic mTLS: timestamp=2021-03-26T15:06:31.458-0700
+2021-03-26T15:06:31.497-0700 [DEBUG] plugin.terraform-provider-kubernetes_v2.0.3_x5: plugin address: address=/tmp/plugin231589092 network=unix timestamp=2021-03-26T15:06:31.497-0700
+2021-03-26T15:06:31.497-0700 [DEBUG] plugin: using plugin: version=5
+2021/03/26 15:06:31 [TRACE] BuiltinEvalContext: Initialized "provider[\"registry.terraform.io/hashicorp/kubernetes\"]" provider for provider["registry.terraform.io/hashicorp/kubernetes"]
+2021/03/26 15:06:31 [TRACE] buildProviderConfig for provider["registry.terraform.io/hashicorp/kubernetes"]: using explicit config only
+2021/03/26 15:06:31 [TRACE] GRPCProvider: GetSchema
+2021-03-26T15:06:31.546-0700 [TRACE] plugin.stdio: waiting for stdio data
+2021-03-26T15:06:31.546-0700 [INFO]  plugin: configuring client automatic mTLS
+2021-03-26T15:06:31.578-0700 [DEBUG] plugin: starting plugin: path=.terraform/providers/localhost/test/kubernetes/9.9.9/linux_amd64/terraform-provider-kubernetes_9.9.9_linux_amd64 args=[.terraform/providers/localhost/test/kubernetes/9.9.9/linux_amd64/terraform-provider-kubernetes_9.9.9_linux_amd64]
+2021-03-26T15:06:31.579-0700 [DEBUG] plugin: plugin started: path=.terraform/providers/localhost/test/kubernetes/9.9.9/linux_amd64/terraform-provider-kubernetes_9.9.9_linux_amd64 pid=237488
+2021-03-26T15:06:31.579-0700 [DEBUG] plugin: waiting for RPC address: path=.terraform/providers/localhost/test/kubernetes/9.9.9/linux_amd64/terraform-provider-kubernetes_9.9.9_linux_amd64
+2021-03-26T15:06:31.625-0700 [INFO]  plugin.terraform-provider-kubernetes_9.9.9_linux_amd64: configuring server automatic mTLS: timestamp=2021-03-26T15:06:31.625-0700
+2021-03-26T15:06:31.663-0700 [DEBUG] plugin.terraform-provider-kubernetes_9.9.9_linux_amd64: plugin address: address=/tmp/plugin079249395 network=unix timestamp=2021-03-26T15:06:31.663-0700
+2021-03-26T15:06:31.663-0700 [DEBUG] plugin: using plugin: version=5
+2021/03/26 15:06:31 [TRACE] BuiltinEvalContext: Initialized "provider[\"localhost/test/kubernetes\"]" provider for provider["localhost/test/kubernetes"]
+2021-03-26T15:06:31.713-0700 [TRACE] plugin.stdio: waiting for stdio data
+2021/03/26 15:06:31 [TRACE] buildProviderConfig for provider["localhost/test/kubernetes"]: using explicit config only
+2021/03/26 15:06:31 [TRACE] GRPCProvider: GetSchema
+2021/03/26 15:06:31 [TRACE] GRPCProvider: Configure
+2021-03-26T15:06:31.715-0700 [INFO]  plugin.terraform-provider-kubernetes_v2.0.3_x5: 2021/03/26 15:06:31 [DEBUG] Using kubeconfig: /home/dakini/.kube/config: timestamp=2021-03-26T15:06:31.715-0700
+2021-03-26T15:06:31.716-0700 [INFO]  plugin.terraform-provider-kubernetes_v2.0.3_x5: 2021/03/26 15:06:31 [DEBUG] Enabling HTTP requests/responses tracing: timestamp=2021-03-26T15:06:31.716-0700
+2021/03/26 15:06:31 [TRACE] vertex "provider[\"registry.terraform.io/hashicorp/kubernetes\"]": visit complete
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "module.community-module.kubernetes_namespace.test (expand)"
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.kubernetes_namespace.test (expand)": starting visit (*terraform.nodeExpandApplyableResource)
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.kubernetes_namespace.test (expand)": expanding dynamic subgraph
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.kubernetes_namespace.test (expand)": entering dynamic subgraph
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "module.community-module.kubernetes_namespace.test"
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.kubernetes_namespace.test": starting visit (*terraform.NodeApplyableResource)
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.kubernetes_namespace.test": visit complete
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.kubernetes_namespace.test (expand)": dynamic subgraph completed successfully
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.kubernetes_namespace.test (expand)": visit complete
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "module.community-module.kubernetes_namespace.test"
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.kubernetes_namespace.test": starting visit (*terraform.NodeApplyableResourceInstance)
+2021/03/26 15:06:31 [TRACE] EvalReadDiff: Read Create change from plan for module.community-module.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] EvalReadState: reading state for module.community-module.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] EvalReadState: no state present for module.community-module.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] EvalReadDiff: Read Create change from plan for module.community-module.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] Re-validating config for "module.community-module.kubernetes_namespace.test"
+2021/03/26 15:06:31 [TRACE] GRPCProvider: ValidateResourceTypeConfig
+2021/03/26 15:06:31 [TRACE] GRPCProvider: PlanResourceChange
+2021/03/26 15:06:31 [TRACE] EvalCheckPlannedChange: Verifying that actual change (action Create) matches planned change (action Create)
+2021/03/26 15:06:31 [TRACE] EvalReadState: reading state for module.community-module.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] EvalReadState: no state present for module.community-module.kubernetes_namespace.test
+[0m[1mmodule.community-module.kubernetes_namespace.test: Creating...[0m[0m
+2021/03/26 15:06:31 [DEBUG] EvalApply: ProviderMeta config value set
+2021/03/26 15:06:31 [DEBUG] module.community-module.kubernetes_namespace.test: applying the planned Create change
+2021/03/26 15:06:31 [TRACE] GRPCProvider: ApplyResourceChange
+2021-03-26T15:06:31.721-0700 [INFO]  plugin.terraform-provider-kubernetes_v2.0.3_x5: 2021/03/26 15:06:31 [INFO] Creating new namespace: v1.Namespace{TypeMeta:v1.TypeMeta{Kind:"", APIVersion:""}, ObjectMeta:v1.ObjectMeta{Name:"released-test", GenerateName:"", Namespace:"", SelfLink:"", UID:"", ResourceVersion:"", Generation:0, CreationTimestamp:v1.Time{Time:time.Time{wall:0x0, ext:0, loc:(*time.Location)(nil)}}, DeletionTimestamp:(*v1.Time)(nil), DeletionGracePeriodSeconds:(*int64)(nil), Labels:map[string]string(nil), Annotations:map[string]string(nil), OwnerReferences:[]v1.OwnerReference(nil), Finalizers:[]string(nil), ClusterName:"", ManagedFields:[]v1.ManagedFieldsEntry(nil)}, Spec:v1.NamespaceSpec{Finalizers:[]v1.FinalizerName(nil)}, Status:v1.NamespaceStatus{Phase:"", Conditions:[]v1.NamespaceCondition(nil)}}: timestamp=2021-03-26T15:06:31.721-0700
+2021-03-26T15:06:31.721-0700 [INFO]  plugin.terraform-provider-kubernetes_v2.0.3_x5: 2021/03/26 15:06:31 [DEBUG] Kubernetes API Request Details:
+---[ REQUEST ]---------------------------------------
+POST /api/v1/namespaces HTTP/1.1
+Host: 192.168.39.191:8443
+User-Agent: HashiCorp/1.0 Terraform/0.14.7
+Content-Length: 122
+Accept: application/json, */*
+Content-Type: application/json
+Accept-Encoding: gzip
+
+{
+ "kind": "Namespace",
+ "apiVersion": "v1",
+ "metadata": {
+  "name": "released-test",
+  "creationTimestamp": null
+ },
+ "spec": {},
+ "status": {}
+}
+
+-----------------------------------------------------: timestamp=2021-03-26T15:06:31.721-0700
+2021-03-26T15:06:31.732-0700 [INFO]  plugin.terraform-provider-kubernetes_v2.0.3_x5: 2021/03/26 15:06:31 [DEBUG] Kubernetes API Response Details:
+---[ RESPONSE ]--------------------------------------
+HTTP/2.0 201 Created
+Content-Length: 427
+Cache-Control: no-cache, private
+Content-Type: application/json
+Date: Fri, 26 Mar 2021 22:06:31 GMT
+X-Kubernetes-Pf-Flowschema-Uid: 36d502c4-69d0-47d2-b6ef-afd0742bb082
+X-Kubernetes-Pf-Prioritylevel-Uid: 9b9cf707-48a1-472b-8a33-62b9f437c045
+
+{
+ "kind": "Namespace",
+ "apiVersion": "v1",
+ "metadata": {
+  "name": "released-test",
+  "uid": "8e89860d-1275-4878-a98e-d54e70a8eb45",
+  "resourceVersion": "1607",
+  "creationTimestamp": "2021-03-26T22:06:31Z",
+  "managedFields": [
+   {
+    "manager": "HashiCorp",
+    "operation": "Update",
+    "apiVersion": "v1",
+    "time": "2021-03-26T22:06:31Z",
+    "fieldsType": "FieldsV1",
+    "fieldsV1": {
+     "f:status": {
+      "f:phase": {}
+     }
+    }
+   }
+  ]
+ },
+ "spec": {
+  "finalizers": [
+   "kubernetes"
+  ]
+ },
+ "status": {
+  "phase": "Active"
+ }
+}
+
+-----------------------------------------------------: timestamp=2021-03-26T15:06:31.732-0700
+2021-03-26T15:06:31.733-0700 [INFO]  plugin.terraform-provider-kubernetes_v2.0.3_x5: 2021/03/26 15:06:31 [INFO] Submitted new namespace: &v1.Namespace{TypeMeta:v1.TypeMeta{Kind:"", APIVersion:""}, ObjectMeta:v1.ObjectMeta{Name:"released-test", GenerateName:"", Namespace:"", SelfLink:"", UID:"8e89860d-1275-4878-a98e-d54e70a8eb45", ResourceVersion:"1607", Generation:0, CreationTimestamp:v1.Time{Time:time.Time{wall:0x0, ext:63752393191, loc:(*time.Location)(0x2c898c0)}}, DeletionTimestamp:(*v1.Time)(nil), DeletionGracePeriodSeconds:(*int64)(nil), Labels:map[string]string(nil), Annotations:map[string]string(nil), OwnerReferences:[]v1.OwnerReference(nil), Finalizers:[]string(nil), ClusterName:"", ManagedFields:[]v1.ManagedFieldsEntry{v1.ManagedFieldsEntry{Manager:"HashiCorp", Operation:"Update", APIVersion:"v1", Time:(*v1.Time)(0xc000cacb28), FieldsType:"FieldsV1", FieldsV1:(*v1.FieldsV1)(0xc000cacb40)}}}, Spec:v1.NamespaceSpec{Finalizers:[]v1.FinalizerName{"kubernetes"}}, Status:v1.NamespaceStatus{Phase:"Active", Conditions:[]v1.NamespaceCondition(nil)}}: timestamp=2021-03-26T15:06:31.733-0700
+2021-03-26T15:06:31.734-0700 [INFO]  plugin.terraform-provider-kubernetes_v2.0.3_x5: 2021/03/26 15:06:31 [INFO] Checking namespace released-test: timestamp=2021-03-26T15:06:31.734-0700
+2021-03-26T15:06:31.734-0700 [INFO]  plugin.terraform-provider-kubernetes_v2.0.3_x5: 2021/03/26 15:06:31 [DEBUG] Kubernetes API Request Details:
+---[ REQUEST ]---------------------------------------
+GET /api/v1/namespaces/released-test HTTP/1.1
+Host: 192.168.39.191:8443
+User-Agent: HashiCorp/1.0 Terraform/0.14.7
+Accept: application/json, */*
+Accept-Encoding: gzip
+
+
+-----------------------------------------------------: timestamp=2021-03-26T15:06:31.734-0700
+2021-03-26T15:06:31.743-0700 [INFO]  plugin.terraform-provider-kubernetes_v2.0.3_x5: 2021/03/26 15:06:31 [DEBUG] Kubernetes API Response Details:
+---[ RESPONSE ]--------------------------------------
+HTTP/2.0 200 OK
+Content-Length: 427
+Cache-Control: no-cache, private
+Content-Type: application/json
+Date: Fri, 26 Mar 2021 22:06:31 GMT
+X-Kubernetes-Pf-Flowschema-Uid: 36d502c4-69d0-47d2-b6ef-afd0742bb082
+X-Kubernetes-Pf-Prioritylevel-Uid: 9b9cf707-48a1-472b-8a33-62b9f437c045
+
+{
+ "kind": "Namespace",
+ "apiVersion": "v1",
+ "metadata": {
+  "name": "released-test",
+  "uid": "8e89860d-1275-4878-a98e-d54e70a8eb45",
+  "resourceVersion": "1607",
+  "creationTimestamp": "2021-03-26T22:06:31Z",
+  "managedFields": [
+   {
+    "manager": "HashiCorp",
+    "operation": "Update",
+    "apiVersion": "v1",
+    "time": "2021-03-26T22:06:31Z",
+    "fieldsType": "FieldsV1",
+    "fieldsV1": {
+     "f:status": {
+      "f:phase": {}
+     }
+    }
+   }
+  ]
+ },
+ "spec": {
+  "finalizers": [
+   "kubernetes"
+  ]
+ },
+ "status": {
+  "phase": "Active"
+ }
+}
+
+-----------------------------------------------------: timestamp=2021-03-26T15:06:31.743-0700
+2021-03-26T15:06:31.743-0700 [INFO]  plugin.terraform-provider-kubernetes_v2.0.3_x5: 2021/03/26 15:06:31 [INFO] Namespace released-test exists: timestamp=2021-03-26T15:06:31.743-0700
+2021-03-26T15:06:31.744-0700 [INFO]  plugin.terraform-provider-kubernetes_v2.0.3_x5: 2021/03/26 15:06:31 [INFO] Reading namespace released-test: timestamp=2021-03-26T15:06:31.744-0700
+2021-03-26T15:06:31.745-0700 [INFO]  plugin.terraform-provider-kubernetes_v2.0.3_x5: 2021/03/26 15:06:31 [DEBUG] Kubernetes API Request Details:
+---[ REQUEST ]---------------------------------------
+GET /api/v1/namespaces/released-test HTTP/1.1
+Host: 192.168.39.191:8443
+User-Agent: HashiCorp/1.0 Terraform/0.14.7
+Accept: application/json, */*
+Accept-Encoding: gzip
+
+
+-----------------------------------------------------: timestamp=2021-03-26T15:06:31.745-0700
+2021-03-26T15:06:31.749-0700 [INFO]  plugin.terraform-provider-kubernetes_v2.0.3_x5: 2021/03/26 15:06:31 [DEBUG] Kubernetes API Response Details:
+---[ RESPONSE ]--------------------------------------
+HTTP/2.0 200 OK
+Content-Length: 427
+Cache-Control: no-cache, private
+Content-Type: application/json
+Date: Fri, 26 Mar 2021 22:06:31 GMT
+X-Kubernetes-Pf-Flowschema-Uid: 36d502c4-69d0-47d2-b6ef-afd0742bb082
+X-Kubernetes-Pf-Prioritylevel-Uid: 9b9cf707-48a1-472b-8a33-62b9f437c045
+
+{
+ "kind": "Namespace",
+ "apiVersion": "v1",
+ "metadata": {
+  "name": "released-test",
+  "uid": "8e89860d-1275-4878-a98e-d54e70a8eb45",
+  "resourceVersion": "1607",
+  "creationTimestamp": "2021-03-26T22:06:31Z",
+  "managedFields": [
+   {
+    "manager": "HashiCorp",
+    "operation": "Update",
+    "apiVersion": "v1",
+    "time": "2021-03-26T22:06:31Z",
+    "fieldsType": "FieldsV1",
+    "fieldsV1": {
+     "f:status": {
+      "f:phase": {}
+     }
+    }
+   }
+  ]
+ },
+ "spec": {
+  "finalizers": [
+   "kubernetes"
+  ]
+ },
+ "status": {
+  "phase": "Active"
+ }
+}
+
+-----------------------------------------------------: timestamp=2021-03-26T15:06:31.749-0700
+2021-03-26T15:06:31.749-0700 [INFO]  plugin.terraform-provider-kubernetes_v2.0.3_x5: 2021/03/26 15:06:31 [INFO] Received namespace: &v1.Namespace{TypeMeta:v1.TypeMeta{Kind:"", APIVersion:""}, ObjectMeta:v1.ObjectMeta{Name:"released-test", GenerateName:"", Namespace:"", SelfLink:"", UID:"8e89860d-1275-4878-a98e-d54e70a8eb45", ResourceVersion:"1607", Generation:0, CreationTimestamp:v1.Time{Time:time.Time{wall:0x0, ext:63752393191, loc:(*time.Location)(0x2c898c0)}}, DeletionTimestamp:(*v1.Time)(nil), DeletionGracePeriodSeconds:(*int64)(nil), Labels:map[string]string(nil), Annotations:map[string]string(nil), OwnerReferences:[]v1.OwnerReference(nil), Finalizers:[]string(nil), ClusterName:"", ManagedFields:[]v1.ManagedFieldsEntry{v1.ManagedFieldsEntry{Manager:"HashiCorp", Operation:"Update", APIVersion:"v1", Time:(*v1.Time)(0xc000fa0030), FieldsType:"FieldsV1", FieldsV1:(*v1.FieldsV1)(0xc000fa0048)}}}, Spec:v1.NamespaceSpec{Finalizers:[]v1.FinalizerName{"kubernetes"}}, Status:v1.NamespaceStatus{Phase:"Active", Conditions:[]v1.NamespaceCondition(nil)}}: timestamp=2021-03-26T15:06:31.749-0700
+2021/03/26 15:06:31 [WARN] Provider "registry.terraform.io/hashicorp/kubernetes" produced an unexpected new value for module.community-module.kubernetes_namespace.test, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .metadata[0].generate_name: was null, but now cty.StringVal("")
+2021/03/26 15:06:31 [TRACE] EvalWriteState: recording 0 dependencies for module.community-module.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] EvalWriteState: writing current state object for module.community-module.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] EvalWriteState: recording 0 dependencies for module.community-module.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] EvalWriteState: writing current state object for module.community-module.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] statemgr.Filesystem: reading latest snapshot from terraform.tfstate
+2021/03/26 15:06:31 [TRACE] statemgr.Filesystem: snapshot file has nil snapshot, but that's okay
+2021/03/26 15:06:31 [TRACE] statemgr.Filesystem: read nil snapshot
+2021/03/26 15:06:31 [TRACE] statemgr.Filesystem: no original state snapshot to back up
+[0m[1mmodule.community-module.kubernetes_namespace.test: Creation complete after 0s [id=released-test][0m[0m
+2021/03/26 15:06:31 [TRACE] statemgr.Filesystem: state has changed since last snapshot, so incrementing serial to 1
+2021/03/26 15:06:31 [TRACE] statemgr.Filesystem: writing snapshot at terraform.tfstate
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module.kubernetes_namespace.test": visit complete
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "module.community-module (close)"
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module (close)": starting visit (*terraform.nodeCloseModule)
+2021/03/26 15:06:31 [TRACE] vertex "module.community-module (close)": visit complete
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "provider[\"registry.terraform.io/hashicorp/kubernetes\"] (close)"
+2021/03/26 15:06:31 [TRACE] vertex "provider[\"registry.terraform.io/hashicorp/kubernetes\"] (close)": starting visit (*terraform.graphNodeCloseProvider)
+2021/03/26 15:06:31 [TRACE] GRPCProvider: Close
+2021-03-26T15:06:31.755-0700 [WARN]  plugin.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = transport is closing"
+2021-03-26T15:06:31.758-0700 [DEBUG] plugin: plugin process exited: path=.terraform/providers/registry.terraform.io/hashicorp/kubernetes/2.0.3/linux_amd64/terraform-provider-kubernetes_v2.0.3_x5 pid=237475
+2021-03-26T15:06:31.758-0700 [DEBUG] plugin: plugin exited
+2021/03/26 15:06:31 [TRACE] vertex "provider[\"registry.terraform.io/hashicorp/kubernetes\"] (close)": visit complete
+2021/03/26 15:06:31 [TRACE] GRPCProvider: Configure
+2021-03-26T15:06:31.759-0700 [INFO]  plugin.terraform-provider-kubernetes_9.9.9_linux_amd64: 2021/03/26 15:06:31 [DEBUG] Using kubeconfig: /home/dakini/.kube/second: timestamp=2021-03-26T15:06:31.759-0700
+2021-03-26T15:06:31.760-0700 [INFO]  plugin.terraform-provider-kubernetes_9.9.9_linux_amd64: 2021/03/26 15:06:31 [DEBUG] Enabling HTTP requests/responses tracing: timestamp=2021-03-26T15:06:31.760-0700
+2021/03/26 15:06:31 [TRACE] vertex "provider[\"localhost/test/kubernetes\"]": visit complete
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "module.kubernetes-test.kubernetes_namespace.test (expand)"
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test.kubernetes_namespace.test (expand)": starting visit (*terraform.nodeExpandApplyableResource)
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test.kubernetes_namespace.test (expand)": expanding dynamic subgraph
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test.kubernetes_namespace.test (expand)": entering dynamic subgraph
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "module.kubernetes-test.kubernetes_namespace.test"
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test.kubernetes_namespace.test": starting visit (*terraform.NodeApplyableResource)
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test.kubernetes_namespace.test": visit complete
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test.kubernetes_namespace.test (expand)": dynamic subgraph completed successfully
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test.kubernetes_namespace.test (expand)": visit complete
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "module.kubernetes-test.kubernetes_namespace.test"
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test.kubernetes_namespace.test": starting visit (*terraform.NodeApplyableResourceInstance)
+2021/03/26 15:06:31 [TRACE] EvalReadDiff: Read Create change from plan for module.kubernetes-test.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] EvalReadState: reading state for module.kubernetes-test.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] EvalReadState: no state present for module.kubernetes-test.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] EvalReadDiff: Read Create change from plan for module.kubernetes-test.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] Re-validating config for "module.kubernetes-test.kubernetes_namespace.test"
+2021/03/26 15:06:31 [TRACE] GRPCProvider: ValidateResourceTypeConfig
+2021/03/26 15:06:31 [TRACE] GRPCProvider: PlanResourceChange
+2021/03/26 15:06:31 [TRACE] EvalCheckPlannedChange: Verifying that actual change (action Create) matches planned change (action Create)
+2021/03/26 15:06:31 [TRACE] EvalReadState: reading state for module.kubernetes-test.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] EvalReadState: no state present for module.kubernetes-test.kubernetes_namespace.test
+[0m[1mmodule.kubernetes-test.kubernetes_namespace.test: Creating...[0m[0m
+2021/03/26 15:06:31 [DEBUG] EvalApply: ProviderMeta config value set
+2021/03/26 15:06:31 [DEBUG] module.kubernetes-test.kubernetes_namespace.test: applying the planned Create change
+2021/03/26 15:06:31 [TRACE] GRPCProvider: ApplyResourceChange
+2021-03-26T15:06:31.765-0700 [INFO]  plugin.terraform-provider-kubernetes_9.9.9_linux_amd64: 2021/03/26 15:06:31 [INFO] Creating new namespace: v1.Namespace{TypeMeta:v1.TypeMeta{Kind:"", APIVersion:""}, ObjectMeta:v1.ObjectMeta{Name:"local-test", GenerateName:"", Namespace:"", SelfLink:"", UID:"", ResourceVersion:"", Generation:0, CreationTimestamp:v1.Time{Time:time.Time{wall:0x0, ext:0, loc:(*time.Location)(nil)}}, DeletionTimestamp:(*v1.Time)(nil), DeletionGracePeriodSeconds:(*int64)(nil), Labels:map[string]string(nil), Annotations:map[string]string(nil), OwnerReferences:[]v1.OwnerReference(nil), Finalizers:[]string(nil), ClusterName:"", ManagedFields:[]v1.ManagedFieldsEntry(nil)}, Spec:v1.NamespaceSpec{Finalizers:[]v1.FinalizerName(nil)}, Status:v1.NamespaceStatus{Phase:"", Conditions:[]v1.NamespaceCondition(nil)}}: timestamp=2021-03-26T15:06:31.765-0700
+2021-03-26T15:06:31.765-0700 [INFO]  plugin.terraform-provider-kubernetes_9.9.9_linux_amd64: 2021/03/26 15:06:31 [DEBUG] Kubernetes API Request Details:
+---[ REQUEST ]---------------------------------------
+POST /api/v1/namespaces HTTP/1.1
+Host: 192.168.39.46:8443
+User-Agent: HashiCorp/1.0 Terraform/0.14.7
+Content-Length: 119
+Accept: application/json, */*
+Content-Type: application/json
+Accept-Encoding: gzip
+
+{
+ "kind": "Namespace",
+ "apiVersion": "v1",
+ "metadata": {
+  "name": "local-test",
+  "creationTimestamp": null
+ },
+ "spec": {},
+ "status": {}
+}
+
+-----------------------------------------------------: timestamp=2021-03-26T15:06:31.765-0700
+2021-03-26T15:06:31.775-0700 [INFO]  plugin.terraform-provider-kubernetes_9.9.9_linux_amd64: 2021/03/26 15:06:31 [DEBUG] Kubernetes API Response Details:
+---[ RESPONSE ]--------------------------------------
+HTTP/2.0 201 Created
+Content-Length: 424
+Cache-Control: no-cache, private
+Content-Type: application/json
+Date: Fri, 26 Mar 2021 22:06:31 GMT
+X-Kubernetes-Pf-Flowschema-Uid: 8e1c7693-278d-4947-ac3a-18041098ed8c
+X-Kubernetes-Pf-Prioritylevel-Uid: 4e162a9d-49e5-4277-881d-c1db282720be
+
+{
+ "kind": "Namespace",
+ "apiVersion": "v1",
+ "metadata": {
+  "name": "local-test",
+  "uid": "1786f853-0ff6-44f7-b2bb-8a9376fe61db",
+  "resourceVersion": "1012",
+  "creationTimestamp": "2021-03-26T22:06:31Z",
+  "managedFields": [
+   {
+    "manager": "HashiCorp",
+    "operation": "Update",
+    "apiVersion": "v1",
+    "time": "2021-03-26T22:06:31Z",
+    "fieldsType": "FieldsV1",
+    "fieldsV1": {
+     "f:status": {
+      "f:phase": {}
+     }
+    }
+   }
+  ]
+ },
+ "spec": {
+  "finalizers": [
+   "kubernetes"
+  ]
+ },
+ "status": {
+  "phase": "Active"
+ }
+}
+
+-----------------------------------------------------: timestamp=2021-03-26T15:06:31.775-0700
+2021-03-26T15:06:31.775-0700 [INFO]  plugin.terraform-provider-kubernetes_9.9.9_linux_amd64: 2021/03/26 15:06:31 [INFO] Submitted new namespace: &v1.Namespace{TypeMeta:v1.TypeMeta{Kind:"", APIVersion:""}, ObjectMeta:v1.ObjectMeta{Name:"local-test", GenerateName:"", Namespace:"", SelfLink:"", UID:"1786f853-0ff6-44f7-b2bb-8a9376fe61db", ResourceVersion:"1012", Generation:0, CreationTimestamp:v1.Time{Time:time.Time{wall:0x0, ext:63752393191, loc:(*time.Location)(0x2c898c0)}}, DeletionTimestamp:(*v1.Time)(nil), DeletionGracePeriodSeconds:(*int64)(nil), Labels:map[string]string(nil), Annotations:map[string]string(nil), OwnerReferences:[]v1.OwnerReference(nil), Finalizers:[]string(nil), ClusterName:"", ManagedFields:[]v1.ManagedFieldsEntry{v1.ManagedFieldsEntry{Manager:"HashiCorp", Operation:"Update", APIVersion:"v1", Time:(*v1.Time)(0xc000aef890), FieldsType:"FieldsV1", FieldsV1:(*v1.FieldsV1)(0xc000aef8a8)}}}, Spec:v1.NamespaceSpec{Finalizers:[]v1.FinalizerName{"kubernetes"}}, Status:v1.NamespaceStatus{Phase:"Active", Conditions:[]v1.NamespaceCondition(nil)}}: timestamp=2021-03-26T15:06:31.775-0700
+2021-03-26T15:06:31.776-0700 [INFO]  plugin.terraform-provider-kubernetes_9.9.9_linux_amd64: 2021/03/26 15:06:31 [INFO] Checking namespace local-test: timestamp=2021-03-26T15:06:31.776-0700
+2021-03-26T15:06:31.777-0700 [INFO]  plugin.terraform-provider-kubernetes_9.9.9_linux_amd64: 2021/03/26 15:06:31 [DEBUG] Kubernetes API Request Details:
+---[ REQUEST ]---------------------------------------
+GET /api/v1/namespaces/local-test HTTP/1.1
+Host: 192.168.39.46:8443
+User-Agent: HashiCorp/1.0 Terraform/0.14.7
+Accept: application/json, */*
+Accept-Encoding: gzip
+
+
+-----------------------------------------------------: timestamp=2021-03-26T15:06:31.777-0700
+2021-03-26T15:06:31.786-0700 [INFO]  plugin.terraform-provider-kubernetes_9.9.9_linux_amd64: 2021/03/26 15:06:31 [DEBUG] Kubernetes API Response Details:
+---[ RESPONSE ]--------------------------------------
+HTTP/2.0 200 OK
+Content-Length: 424
+Cache-Control: no-cache, private
+Content-Type: application/json
+Date: Fri, 26 Mar 2021 22:06:31 GMT
+X-Kubernetes-Pf-Flowschema-Uid: 8e1c7693-278d-4947-ac3a-18041098ed8c
+X-Kubernetes-Pf-Prioritylevel-Uid: 4e162a9d-49e5-4277-881d-c1db282720be
+
+{
+ "kind": "Namespace",
+ "apiVersion": "v1",
+ "metadata": {
+  "name": "local-test",
+  "uid": "1786f853-0ff6-44f7-b2bb-8a9376fe61db",
+  "resourceVersion": "1012",
+  "creationTimestamp": "2021-03-26T22:06:31Z",
+  "managedFields": [
+   {
+    "manager": "HashiCorp",
+    "operation": "Update",
+    "apiVersion": "v1",
+    "time": "2021-03-26T22:06:31Z",
+    "fieldsType": "FieldsV1",
+    "fieldsV1": {
+     "f:status": {
+      "f:phase": {}
+     }
+    }
+   }
+  ]
+ },
+ "spec": {
+  "finalizers": [
+   "kubernetes"
+  ]
+ },
+ "status": {
+  "phase": "Active"
+ }
+}
+
+-----------------------------------------------------: timestamp=2021-03-26T15:06:31.786-0700
+2021-03-26T15:06:31.786-0700 [INFO]  plugin.terraform-provider-kubernetes_9.9.9_linux_amd64: 2021/03/26 15:06:31 [INFO] Namespace local-test exists: timestamp=2021-03-26T15:06:31.786-0700
+2021-03-26T15:06:31.788-0700 [INFO]  plugin.terraform-provider-kubernetes_9.9.9_linux_amd64: 2021/03/26 15:06:31 [INFO] Reading namespace local-test: timestamp=2021-03-26T15:06:31.788-0700
+2021-03-26T15:06:31.789-0700 [INFO]  plugin.terraform-provider-kubernetes_9.9.9_linux_amd64: 2021/03/26 15:06:31 [DEBUG] Kubernetes API Request Details:
+---[ REQUEST ]---------------------------------------
+GET /api/v1/namespaces/local-test HTTP/1.1
+Host: 192.168.39.46:8443
+User-Agent: HashiCorp/1.0 Terraform/0.14.7
+Accept: application/json, */*
+Accept-Encoding: gzip
+
+
+-----------------------------------------------------: timestamp=2021-03-26T15:06:31.788-0700
+2021-03-26T15:06:31.790-0700 [INFO]  plugin.terraform-provider-kubernetes_9.9.9_linux_amd64: 2021/03/26 15:06:31 [DEBUG] Kubernetes API Response Details:
+---[ RESPONSE ]--------------------------------------
+HTTP/2.0 200 OK
+Content-Length: 424
+Cache-Control: no-cache, private
+Content-Type: application/json
+Date: Fri, 26 Mar 2021 22:06:31 GMT
+X-Kubernetes-Pf-Flowschema-Uid: 8e1c7693-278d-4947-ac3a-18041098ed8c
+X-Kubernetes-Pf-Prioritylevel-Uid: 4e162a9d-49e5-4277-881d-c1db282720be
+
+{
+ "kind": "Namespace",
+ "apiVersion": "v1",
+ "metadata": {
+  "name": "local-test",
+  "uid": "1786f853-0ff6-44f7-b2bb-8a9376fe61db",
+  "resourceVersion": "1012",
+  "creationTimestamp": "2021-03-26T22:06:31Z",
+  "managedFields": [
+   {
+    "manager": "HashiCorp",
+    "operation": "Update",
+    "apiVersion": "v1",
+    "time": "2021-03-26T22:06:31Z",
+    "fieldsType": "FieldsV1",
+    "fieldsV1": {
+     "f:status": {
+      "f:phase": {}
+     }
+    }
+   }
+  ]
+ },
+ "spec": {
+  "finalizers": [
+   "kubernetes"
+  ]
+ },
+ "status": {
+  "phase": "Active"
+ }
+}
+
+-----------------------------------------------------: timestamp=2021-03-26T15:06:31.790-0700
+2021-03-26T15:06:31.790-0700 [INFO]  plugin.terraform-provider-kubernetes_9.9.9_linux_amd64: 2021/03/26 15:06:31 [INFO] Received namespace: &v1.Namespace{TypeMeta:v1.TypeMeta{Kind:"", APIVersion:""}, ObjectMeta:v1.ObjectMeta{Name:"local-test", GenerateName:"", Namespace:"", SelfLink:"", UID:"1786f853-0ff6-44f7-b2bb-8a9376fe61db", ResourceVersion:"1012", Generation:0, CreationTimestamp:v1.Time{Time:time.Time{wall:0x0, ext:63752393191, loc:(*time.Location)(0x2c898c0)}}, DeletionTimestamp:(*v1.Time)(nil), DeletionGracePeriodSeconds:(*int64)(nil), Labels:map[string]string(nil), Annotations:map[string]string(nil), OwnerReferences:[]v1.OwnerReference(nil), Finalizers:[]string(nil), ClusterName:"", ManagedFields:[]v1.ManagedFieldsEntry{v1.ManagedFieldsEntry{Manager:"HashiCorp", Operation:"Update", APIVersion:"v1", Time:(*v1.Time)(0xc000728930), FieldsType:"FieldsV1", FieldsV1:(*v1.FieldsV1)(0xc000728948)}}}, Spec:v1.NamespaceSpec{Finalizers:[]v1.FinalizerName{"kubernetes"}}, Status:v1.NamespaceStatus{Phase:"Active", Conditions:[]v1.NamespaceCondition(nil)}}: timestamp=2021-03-26T15:06:31.790-0700
+2021/03/26 15:06:31 [WARN] Provider "localhost/test/kubernetes" produced an unexpected new value for module.kubernetes-test.kubernetes_namespace.test, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .metadata[0].generate_name: was null, but now cty.StringVal("")
+2021/03/26 15:06:31 [TRACE] EvalWriteState: recording 0 dependencies for module.kubernetes-test.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] EvalWriteState: writing current state object for module.kubernetes-test.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] EvalWriteState: recording 0 dependencies for module.kubernetes-test.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] EvalWriteState: writing current state object for module.kubernetes-test.kubernetes_namespace.test
+2021/03/26 15:06:31 [TRACE] statemgr.Filesystem: reading latest snapshot from terraform.tfstate
+[0m[1mmodule.kubernetes-test.kubernetes_namespace.test: Creation complete after 0s [id=local-test][0m[0m
+2021/03/26 15:06:31 [TRACE] statemgr.Filesystem: read snapshot with lineage "2b695ae8-2d1f-61f5-036f-e3125c837581" serial 1
+2021/03/26 15:06:31 [TRACE] statemgr.Filesystem: no original state snapshot to back up
+2021/03/26 15:06:31 [TRACE] statemgr.Filesystem: state has changed since last snapshot, so incrementing serial to 2
+2021/03/26 15:06:31 [TRACE] statemgr.Filesystem: writing snapshot at terraform.tfstate
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test.kubernetes_namespace.test": visit complete
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "provider[\"localhost/test/kubernetes\"] (close)"
+2021/03/26 15:06:31 [TRACE] vertex "provider[\"localhost/test/kubernetes\"] (close)": starting visit (*terraform.graphNodeCloseProvider)
+2021/03/26 15:06:31 [TRACE] GRPCProvider: Close
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "module.kubernetes-test (close)"
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test (close)": starting visit (*terraform.nodeCloseModule)
+2021/03/26 15:06:31 [TRACE] vertex "module.kubernetes-test (close)": visit complete
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "meta.count-boundary (EachMode fixup)"
+2021/03/26 15:06:31 [TRACE] vertex "meta.count-boundary (EachMode fixup)": starting visit (*terraform.NodeCountBoundary)
+2021/03/26 15:06:31 [TRACE] vertex "meta.count-boundary (EachMode fixup)": visit complete
+2021-03-26T15:06:31.792-0700 [WARN]  plugin.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = transport is closing"
+2021-03-26T15:06:31.795-0700 [DEBUG] plugin: plugin process exited: path=.terraform/providers/localhost/test/kubernetes/9.9.9/linux_amd64/terraform-provider-kubernetes_9.9.9_linux_amd64 pid=237488
+2021-03-26T15:06:31.795-0700 [DEBUG] plugin: plugin exited
+2021/03/26 15:06:31 [TRACE] vertex "provider[\"localhost/test/kubernetes\"] (close)": visit complete
+2021/03/26 15:06:31 [TRACE] dag/walk: visiting "root"
+2021/03/26 15:06:31 [TRACE] vertex "root": starting visit (*terraform.nodeCloseModule)
+2021/03/26 15:06:31 [TRACE] vertex "root": visit complete
+2021/03/26 15:06:31 [TRACE] statemgr.Filesystem: no original state snapshot to back up
+2021/03/26 15:06:31 [TRACE] statemgr.Filesystem: state has changed since last snapshot, so incrementing serial to 3
+2021/03/26 15:06:31 [TRACE] statemgr.Filesystem: writing snapshot at terraform.tfstate
+[0m[1m[32m
+2021/03/26 15:06:31 [TRACE] statemgr.Filesystem: removing lock metadata file .terraform.tfstate.lock.info
+Apply complete! Resources: 2 added, 0 changed, 0 destroyed.[0m
+2021/03/26 15:06:31 [TRACE] statemgr.Filesystem: unlocking terraform.tfstate using fcntl flock
